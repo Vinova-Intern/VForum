@@ -27,4 +27,7 @@
     <string name="female">Female</string>
     <string name="sign_up_upper">SIGN UP</string>
     <string name="have_an_account">Have an account?</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
