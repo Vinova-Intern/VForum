@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/VForum"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/vforum_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/app_icon"
+        app:layout_constraintEnd_toEndOf="@+id/app_icon"
+        app:layout_constraintTop_toBottomOf="@+id/app_icon"/>
+
+    <TextView
+        android:id="@+id/vforum_register_email_emailname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="17sp"
+        android:textColor="#ff4d4d"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_login_title"/>
+
+    <EditText
+        android:id="@+id/vforum_register_email_emailname_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_email_emailname" />
+
+    <TextView
+        android:id="@+id/vforum_register_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_email_emailname_edittext" />
+
+    <TextView
+        android:id="@+id/vforum_register_email_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="17sp"
+        android:textColor="#ff4d4d"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_line2"/>
+
+    <EditText
+        android:id="@+id/vforum_register_email_username_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_email_username" />
+
+    <TextView
+        android:id="@+id/vforum_register_line5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_email_username_edittext" />
+
+    <TextView
+        android:id="@+id/vforum_register_email_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="17sp"
+        android:textColor="#ff4d4d"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_line5"/>
+
+    <EditText
+        android:id="@+id/vforum_register_email_password_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_email_password" />
+
+    <ImageView
+        android:id="@+id/vforum_register_password_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/icon_visibility"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vforum_register_email_password_edittext" />
+
+    <TextView
+        android:id="@+id/vforum_register_line6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_password_visibility" />
+
+    <TextView
+        android:id="@+id/vforum_register_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="17sp"
+        android:textColor="#ff4d4d"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_line6"/>
+
+    <RadioButton
+        android:id="@+id/vforum_register_button_male"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/vforum_register_gender"
+        app:layout_constraintTop_toBottomOf="@id/vforum_register_gender"/>
+
+    <TextView
+        android:id="@+id/vforum_register_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/vforum_register_button_male"
+        app:layout_constraintBottom_toBottomOf="@id/vforum_register_button_male"
+        app:layout_constraintStart_toEndOf="@id/vforum_register_button_male"/>
+
+    <RadioButton
+        android:id="@+id/vforum_register_button_female"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/vforum_register_gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vforum_register_gender"/>
+
+    <TextView
+        android:id="@+id/vforum_register_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/vforum_register_button_female"
+        app:layout_constraintBottom_toBottomOf="@id/vforum_register_button_female"
+        app:layout_constraintStart_toEndOf="@id/vforum_register_button_female"/>
+
+    <TextView
+        android:id="@+id/vforum_register_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_sign_in_0"
+        android:text="SIGN UP"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_button_male" />
+
+    <TextView
+        android:id="@+id/vforum_register_have_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have an account?"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/vforum_register_sign_up"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_sign_up"/>
+
+    <TextView
+        android:id="@+id/vforum_register_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:textSize="16sp"
+        android:textColor="#ff4d4d"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@+id/vforum_register_have_account"
+        app:layout_constraintTop_toBottomOf="@+id/vforum_register_sign_up"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
