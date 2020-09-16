@@ -112,7 +112,7 @@
         android:id="@+id/vforum_item_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/feed_comment"
+        android:src="@drawable/post_comment"
         android:layout_marginStart="80dp"
         app:layout_constraintStart_toEndOf="@+id/vforum_item_like"
         app:layout_constraintTop_toTopOf="@id/vforum_item_like"/>
