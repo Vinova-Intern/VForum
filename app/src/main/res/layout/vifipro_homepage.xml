@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:id="@+id/feed_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/feed_user"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/feed_line1"
         android:layout_width="match_parent"
@@ -12,7 +23,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"  />
+        app:layout_constraintTop_toBottomOf="@+id/feed_user"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiftRefresh"
@@ -22,7 +33,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feed_line1"
-        app:layout_constraintBottom_toTopOf="@+id/feed_home">
+        app:layout_constraintBottom_toTopOf="@+id/post_home">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/feed_view"
@@ -40,7 +51,7 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ImageView
-        android:id="@+id/feed_home"
+        android:id="@+id/post_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/feed_home"
@@ -50,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
-        android:id="@+id/feed_add"
+        android:id="@+id/post_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/feed_add"
@@ -60,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
-        android:id="@+id/feed_user"
+        android:id="@+id/post_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/feed_user"

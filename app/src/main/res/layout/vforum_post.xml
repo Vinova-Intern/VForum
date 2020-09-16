@@ -89,7 +89,7 @@
         android:id="@+id/vforum_item_post_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Post description"
+        android:text="@string/post_description"
         android:textSize="20sp"
         android:textColor="#04040F"
         android:layout_marginStart="10dp"
