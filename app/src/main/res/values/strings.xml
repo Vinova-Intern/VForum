@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">VForum</string>
+    <string name="group_name">Group name</string>
+    <string name="option_image">Option Image</string>
+    <string name="topic">Topic</string>
+    <string name="name">Name</string>
+    <string name="posted_by">Posted by</string>
+    <string name="username">Username</string>
+    <string name="post_title">Post title</string>
+    <string name="post_description">Post description</string>
+    <string name="comment_icon">Comment Icon</string>
+    <string name="like_icon">Like Icon</string>
+    <string name="feed_icon">Feed Icon</string>
+    <string name="post_icon">Post Icon</string>
+    <string name="user_icon">User icon</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="show_password_icon">Show password Icon</string>
+    <string name="log_in_upper">LOG IN</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="logo_icon">Logo Icon</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sign_up_upper">SIGN UP</string>
+    <string name="have_an_account">Have an account?</string>
 </resources>
