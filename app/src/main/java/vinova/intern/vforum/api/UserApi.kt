@@ -17,11 +17,10 @@ interface UserApi {
     @FormUrlEncoded
     @POST("signup")
     fun signUp(
-        @Field("display_name") display_name: String,
-        @Field("name") name: String,
-        @Field("gender") gender: String,
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("password") password: String,
+        @Field("display_name") display_name: String,
+        @Field("gender") gender: String
     ): Call<UserData>
 
     @FormUrlEncoded
