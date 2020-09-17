@@ -28,6 +28,10 @@ android {
         dataBinding=true
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
 }
 
 //ext {
@@ -110,6 +114,11 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.0.0'
 
     implementation 'androidx.security:security-crypto:1.0.0-beta01'
+
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
 }
 
 //apply plugin: 'com.google.gms.google-services'

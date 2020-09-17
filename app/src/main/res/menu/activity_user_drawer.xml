@@ -5,12 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/change_password"
+            android:icon="@drawable/user_change_password"
+            android:title="@string/change_password" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/my_post"
+            android:icon="@drawable/user_my_post"
+            android:title="@string/my_post" />
+
+        <item
+            android:id="@+id/log_out"
+            android:icon="@drawable/user_log_out"
+            android:title="@string/log_out" />
     </group>
 </menu>

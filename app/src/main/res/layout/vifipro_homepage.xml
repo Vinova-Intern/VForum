@@ -2,29 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/feed_user"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/feed_user"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/user_icon" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/feed_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/feed_user"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/user_icon" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/line_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#ff4d4d"
-        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feed_user"/>
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swift_refresh"
@@ -56,9 +66,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/feed_home"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/feed_icon" />
+
+    <ImageView
+        android:id="@+id/post_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/feed_event"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@+id/post_home"
+        app:layout_constraintEnd_toEndOf="@+id/post_add"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/feed_icon" />
 
@@ -74,11 +95,22 @@
         android:contentDescription="@string/post_icon" />
 
     <ImageView
+        android:id="@+id/post_memory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/feed_memory"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@+id/post_add"
+        app:layout_constraintEnd_toEndOf="@+id/post_notification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/feed_icon" />
+
+    <ImageView
         android:id="@+id/post_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/feed_user"
-        android:layout_marginEnd="30dp"
+        android:src="@drawable/feed_notification"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

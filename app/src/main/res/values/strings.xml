@@ -34,4 +34,8 @@
     <string name="menu_gallery">Menu Gallery</string>
     <string name="user_avatar">User Avatar</string>
     <string name="personal_info">Personal Info</string>
+    <string name="homepage_setting">Homepage Setting</string>
+    <string name="change_password">Change Password</string>
+    <string name="my_post">My Post</string>
+    <string name="log_out">Log Out</string>
 </resources>

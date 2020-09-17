@@ -18,7 +18,7 @@
         app:menu="@menu/activity_user_drawer" />
 
     <include
-        layout="@layout/app_bar_user"
+        layout="@layout/vifipro_homepage"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.drawerlayout.widget.DrawerLayout>
