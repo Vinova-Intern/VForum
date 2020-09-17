@@ -38,4 +38,5 @@
     <string name="change_password">Change Password</string>
     <string name="my_post">My Post</string>
     <string name="log_out">Log Out</string>
+    <string name="use_this_for_comment_section">Use this for comment section</string>
 </resources>
