@@ -6,15 +6,16 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import vinova.intern.vforum.api.UserApiCaller
-import vinova.intern.vforum.model.UserData
+import vinova.intern.vforum.model.login.LoginUser
+import vinova.intern.vforum.model.sign_up.SignUpUser
+import vinova.kane.string.network.Client
 
 class UserViewModel: ViewModel() {
-    private val compositeDisposable by lazy { CompositeDisposable() }
-    private val apiCaller: UserApiCaller by lazy { UserApiCaller() }
+    private val compositeDisposable = CompositeDisposable()
+    private val apiService = Client.getClient()
 
-    val signUpData = MutableLiveData<UserData>()
-    val loginData = MutableLiveData<UserData>().apply { value = null }
+    val signUpData: MutableLiveData<SignUpUser> = MutableLiveData()
+    val loginData: MutableLiveData<LoginUser> = MutableLiveData()
 
     fun signUp(
         email: String,
@@ -24,13 +25,12 @@ class UserViewModel: ViewModel() {
     ){
         Log.d("UserViewModel", "Sign up with: $email $password $displayName $gender")
         compositeDisposable.add(
-            apiCaller.signUp(
-                email, password, displayName, gender
-            ).subscribeOn(Schedulers.io())
+            apiService.signUp(email, password, displayName, gender)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     signUpData.value = it
-                    Log.d("UserViewModel", "${it.message}")
+                    Log.d("UserViewModel", "Data: $it")
                 },{
                     Log.d("UserViewModel", "Failure: ${it.message}")
                 })
@@ -42,7 +42,7 @@ class UserViewModel: ViewModel() {
         password: String
     ){
         compositeDisposable.add(
-            apiCaller.login(email, password)
+            apiService.login(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
