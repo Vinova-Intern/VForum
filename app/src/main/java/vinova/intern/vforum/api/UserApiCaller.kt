@@ -9,10 +9,10 @@ class UserApiCaller {
         RetrofitClientInstance.getHelperRestFull()!!.create(UserApi::class.java)
     }
 
-    fun login(username: String, password: String): Single<UserData> {
+    fun login(email: String, password: String): Single<UserData> {
         return RetrofitClientInstance.buildRequest(
             _apiRestFull.login(
-                username,
+                email,
                 password
             )
         )

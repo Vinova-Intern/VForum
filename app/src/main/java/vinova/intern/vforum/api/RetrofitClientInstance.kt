@@ -31,9 +31,9 @@ class RetrofitClientInstance {
             if (retrofit == null) {
                 retrofit = Retrofit
                     .Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl("")
                     .client(client)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .baseUrl("http:/192.168.0.128:4000/v1/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
