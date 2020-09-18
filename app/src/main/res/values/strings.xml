@@ -39,4 +39,8 @@
     <string name="my_post">My Post</string>
     <string name="log_out">Log Out</string>
     <string name="use_this_for_comment_section">Use this for comment section</string>
+    <string name="return_to_homepage">Return to Homepage</string>
+    <string name="notification_icon">Notification icon</string>
+    <string name="notification_description">Notification description</string>
+    <string name="event_icon">Event icon</string>
 </resources>
