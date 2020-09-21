@@ -13,7 +13,11 @@
         <action
             android:id="@+id/login_to_sign_up_action"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/test_sign_up_ui_ver2_action"
+            app:destination="@id/signUpFragmentV2" />
     </fragment>
+
     <fragment
         tools:layout="@layout/fragment_sign_up"
         android:id="@+id/signUpFragment"
@@ -23,4 +27,10 @@
             android:id="@+id/sign_up_to_login_action"
             app:destination="@id/loginFragment" />
     </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_sign_up_v2"
+        android:id="@+id/signUpFragmentV2"
+        android:name="vinova.intern.vforum.ui.auth.fragment.SignUpFragmentV2"
+        android:label="SignUpFragmentV2" />
 </navigation>

@@ -41,4 +41,10 @@
     <string name="enter_your_email">Enter your email!</string>
     <string name="enter_your_display_name">Enter your display name!</string>
     <string name="enter_your_password">Enter your password!</string>
+    <string name="existing_user">Existing user?</string>
+    <string name="welcome">Welcome !</string>
+    <string name="we_just_need_to_get_a_few_details_from_you_to_get_you_signed_up_to_the_service">We just need to get a few details from you to get you signed up to the service.</string>
+    <string name="log_in_lower">Log in</string>
+    <string name="login">Login</string>
+    <string name="join_us">Join us</string>
 </resources>

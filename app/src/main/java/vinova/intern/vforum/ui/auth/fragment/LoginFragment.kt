@@ -33,6 +33,12 @@ class LoginFragment : Fragment() {
             }
         }
 
+        binding.haveAccountTv.setOnClickListener {
+            if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(R.id.test_sign_up_ui_ver2_action)
+            }
+        }
+
         binding.loginTv.setOnClickListener { logIn() }
 
         return binding.root
