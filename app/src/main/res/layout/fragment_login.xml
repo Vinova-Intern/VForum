@@ -7,6 +7,16 @@
     android:background="#ffffff"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <ImageView
         android:id="@+id/logo_icon_iv"
         android:layout_width="wrap_content"
@@ -20,7 +30,7 @@
         android:contentDescription="@string/logo_icon" />
 
     <TextView
-        android:id="@+id/register_title_tv"
+        android:id="@+id/login_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log_in"
@@ -30,6 +40,18 @@
         app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
         app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
         app:layout_constraintTop_toBottomOf="@+id/logo_icon_iv"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/login_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/successfully"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
+        app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
+        app:layout_constraintTop_toBottomOf="@+id/login_title_tv" />
 
     <TextView
         android:id="@+id/username_tv"
@@ -42,7 +64,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_title_tv"/>
+        app:layout_constraintTop_toBottomOf="@+id/login_message_tv"/>
 
     <EditText
         android:hint="@string/enter_your_email"

@@ -1,7 +1,6 @@
-package vinova.kane.string.network
+package vinova.intern.vforum.network
 
 import io.reactivex.Single
-import retrofit2.Call
 import retrofit2.http.*
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser

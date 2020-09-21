@@ -12,6 +12,16 @@
         android:layout_height="wrap_content"
         android:background="#FFF">
 
+        <ProgressBar
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <ImageView
             android:id="@+id/logo_icon_iv"
             android:layout_width="wrap_content"

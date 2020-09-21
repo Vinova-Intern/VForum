@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentSignUpBinding
+import vinova.intern.vforum.utils.DISPLAY_NAME_EXISTED
+import vinova.intern.vforum.utils.Status
 import vinova.intern.vforum.viewmodel.UserViewModel
 
 class SignUpFragment : Fragment() {
@@ -53,9 +55,20 @@ class SignUpFragment : Fragment() {
                 if(findNavController().currentDestination?.id == R.id.signUpFragment){
                     findNavController().navigate(R.id.sign_up_to_login_action)
                 }
-            } else {
+            } else if(it.message == "Error") {
+                binding.signUpMessageTv.text = DISPLAY_NAME_EXISTED
+                binding.signUpMessageTv.visibility = View.VISIBLE
+            } else{
                 binding.signUpMessageTv.text = it.message
                 binding.signUpMessageTv.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            if (it == Status.LOADING){
+                binding.progressBar.visibility = View.VISIBLE
+            } else{
+                binding.progressBar.visibility = View.GONE
             }
         })
     }

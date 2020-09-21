@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentLoginBinding
 import vinova.intern.vforum.ui.main.MainActivity
+import vinova.intern.vforum.utils.Status
 import vinova.intern.vforum.viewmodel.UserViewModel
 
 class LoginFragment : Fragment() {
@@ -56,6 +57,17 @@ class LoginFragment : Fragment() {
             if (it.success) {
                 Log.d("SignUpFragment", "Message: ${it.message}")
                 startActivity(Intent(activity, MainActivity::class.java))
+            } else{
+                binding.loginMessageTv.text = it.message
+                binding.loginMessageTv.visibility = View.VISIBLE
+            }
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            if (it == Status.LOADING){
+                binding.progressBar.visibility = View.VISIBLE
+            } else{
+                binding.progressBar.visibility = View.GONE
             }
         })
     }
