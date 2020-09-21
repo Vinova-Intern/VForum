@@ -14,16 +14,16 @@ data class UserData(
 
 @Parcelize
 data class UserInfo(
-    val access_token: String?,
-    val created_at: String?,
+    val accessToken: String?,
+    val createdAt: String?,
     val email: String?,
     val fcm_token: String?,
     val gender: String?,
-    val id: String?,
-    val refresh_token: String?,
+    val userId: String?,
+    val refreshToken: String?,
     val refreshTokenFromClient:String?,
     val updated_at: String?,
-    val display_name: String?,
+    val displayName: String?,
     val postsCounter: Int?
 ): Parcelable
 
