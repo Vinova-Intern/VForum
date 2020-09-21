@@ -2,4 +2,46 @@
 <resources>
     <dimen name="nav_header_height">100dp</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
+
+    <dimen name="margin_left_16">16dp</dimen>
+    <dimen name="margin_right_16">16dp</dimen>
+    <dimen name="margin_top_16">16dp</dimen>
+    <dimen name="margin_bottom_16">16dp</dimen>
+
+    <dimen name="margin_top_8">8dp</dimen>
+    <dimen name="margin_bottom_8">8dp</dimen>
+    <dimen name="margin_left_8">8dp</dimen>
+    <dimen name="margin_right_8">8dp</dimen>
+
+    <dimen name="margin_top_4">4dp</dimen>
+    <dimen name="margin_bottom_4">4dp</dimen>
+    <dimen name="margin_left_4">4dp</dimen>
+    <dimen name="margin_right_4">4dp</dimen>
+
+    <dimen name="radius_2">2dp</dimen>
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="radius_24">24dp</dimen>
+    <dimen name="radius_32">32dp</dimen>
+
+    <dimen name="padding_1">1dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_14">14dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+
+    <dimen name="dimen_1">1dp</dimen>
+    <dimen name="lineSpacingExtra_4">4dp</dimen>
+
+
+    <dimen name="viewportWidth">24.0</dimen>
+    <dimen name="viewportHeight">24.0</dimen>
+
+
+    <dimen name="vector_height">24dp</dimen>
+    <dimen name="vector_width">24dp</dimen>
+    <dimen name="standard_size_text">15sp</dimen>
+    <dimen name="small_size_text">12sp</dimen>
+
 </resources>

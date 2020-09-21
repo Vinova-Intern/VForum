@@ -1,7 +1,8 @@
-package vinova.intern.vforum
+package vinova.intern.vforum.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import vinova.intern.vforum.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
