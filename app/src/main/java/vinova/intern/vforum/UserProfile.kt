@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import kotlinx.android.synthetic.main.user_profile.*
-import kotlinx.android.synthetic.main.vifipro_homepage.*
+import kotlinx.android.synthetic.main.vforum_homepage.*
 
 
 class UserProfile : AppCompatActivity(), View.OnClickListener {
@@ -25,7 +25,7 @@ class UserProfile : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         if (view?.id == R.id.feed_user){
-            drawer_layout.openDrawer(GravityCompat.START);
+            drawer_layout.openDrawer(GravityCompat.START)
         }
     }
 }

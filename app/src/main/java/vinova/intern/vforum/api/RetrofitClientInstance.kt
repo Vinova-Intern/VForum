@@ -17,23 +17,33 @@ class RetrofitClientInstance {
 
         private var retrofit: Retrofit? = null
 
-        private val logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+        private val basic_logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
-                Log.d("API", message)
+                Log.d("basic", message)
+            }
+        }).setLevel(HttpLoggingInterceptor.Level.BASIC)
+        private val header_logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+            override fun log(message: String) {
+                Log.d("header", message)
+            }
+        }).setLevel(HttpLoggingInterceptor.Level.BASIC)
+        private val body_logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+            override fun log(message: String) {
+                Log.d("body", message)
             }
         }).setLevel(HttpLoggingInterceptor.Level.BASIC)
 
         private var client = OkHttpClient.Builder()
-            .addInterceptor(logging)
+            .addInterceptor(basic_logging)
             .build()
 
         fun getHelperRestFull(): Retrofit? {
             if (retrofit == null) {
                 retrofit = Retrofit
                     .Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl("")
                     .client(client)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .baseUrl("http:/10.0.2.2:4000/v1/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
@@ -46,10 +56,15 @@ class RetrofitClientInstance {
                     override fun onResponse(call: Call<T>, response: Response<T>) {
                         try {
                             when (response.code()) {
+                                201 -> {
+                                    it.onSuccess(response.body()!!)
+                                }
+
                                 200 -> {
                                     it.onSuccess(response.body()!!)
                                 }
-                                401 -> it.onError(Throwable(response.message()))
+
+                                400 -> it.onError(Throwable(response.message()))
                             }
                         } catch (ex: Exception) {
                             it.onError(ex)

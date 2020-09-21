@@ -7,7 +7,8 @@ import kotlinx.android.parcel.Parcelize
 data class UserData(
     var success: Boolean?,
     val result: UserInfo?,
-    var message: String?,
+    @SerializedName("message")
+    var message: String,
     val code: Int?
 )
 
@@ -18,7 +19,7 @@ data class UserInfo(
     val email: String?,
     val fcm_token: String?,
     val gender: String?,
-    val id: Int?,
+    val id: String?,
     val refresh_token: String?,
     val refreshTokenFromClient:String?,
     val updated_at: String?,
