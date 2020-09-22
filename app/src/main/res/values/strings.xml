@@ -60,4 +60,7 @@
     <string name="log_in_lower">Log in</string>
     <string name="login">Login</string>
     <string name="join_us">Join us</string>
+    <string name="android">Android</string>
+    <string name="created_by">Created by</string>
+    <string name="kane">Kane</string>
 </resources>

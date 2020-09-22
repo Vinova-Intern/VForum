@@ -1,9 +1,9 @@
-package vinova.intern.vforum.model.group
+package vinova.intern.vforum.model.topic
 
 
 import com.google.gson.annotations.SerializedName
 
-data class GroupsResponse(
+data class TopicResponse(
     @SerializedName("code")
     val code: Int,
     @SerializedName("error")
@@ -11,7 +11,7 @@ data class GroupsResponse(
     @SerializedName("options")
     val options: Any,
     @SerializedName("result")
-    val result: List<Result>,
+    val result: List<Topic>,
     @SerializedName("success")
     val success: Boolean
 )

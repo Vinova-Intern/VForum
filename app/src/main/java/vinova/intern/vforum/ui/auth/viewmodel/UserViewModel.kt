@@ -1,4 +1,4 @@
-package vinova.intern.vforum.viewmodel
+package vinova.intern.vforum.ui.auth.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

@@ -19,7 +19,7 @@ object Client {
 
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("http:/192.168.3.111:4000/v1/api/")
+            .baseUrl("http:/192.168.1.160:4000/v1/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

@@ -42,6 +42,8 @@
     <dimen name="vector_height">24dp</dimen>
     <dimen name="vector_width">24dp</dimen>
     <dimen name="standard_size_text">15sp</dimen>
-    <dimen name="small_size_text">12sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="large_text_size">25sp</dimen>
 
 </resources>

@@ -1,4 +1,4 @@
-package vinova.intern.vforum.ui.auth.fragment
+package vinova.intern.vforum.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,8 +13,9 @@ import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentLoginBinding
 import vinova.intern.vforum.ui.main.MainActivity
+import vinova.intern.vforum.utils.AUTHORIZATION_ARG
 import vinova.intern.vforum.utils.Status
-import vinova.intern.vforum.viewmodel.UserViewModel
+import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -56,7 +57,9 @@ class LoginFragment : Fragment() {
         viewModel.loginData.observe(viewLifecycleOwner, Observer {
             if (it.success) {
                 Log.d("SignUpFragment", "Message: ${it.message}")
-                startActivity(Intent(activity, MainActivity::class.java))
+                val intent = Intent(activity, MainActivity::class.java)
+                intent.putExtra(AUTHORIZATION_ARG, it.result.accessToken)
+                startActivity(intent)
             } else{
                 binding.loginMessageTv.text = it.message
                 binding.loginMessageTv.visibility = View.VISIBLE

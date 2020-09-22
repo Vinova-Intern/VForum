@@ -96,7 +96,7 @@
                         android:lineSpacingExtra="@dimen/lineSpacingExtra_4"
                         android:text="@string/we_just_need_to_get_a_few_details_from_you_to_get_you_signed_up_to_the_service"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/small_size_text" />
+                        android:textSize="@dimen/small_text_size" />
 
                     <EditText
                         android:id="@+id/reg_email_et"

@@ -1,4 +1,4 @@
-package vinova.intern.vforum.ui.auth.fragment
+package vinova.intern.vforum.ui.auth
 
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +13,7 @@ import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentSignUpBinding
 import vinova.intern.vforum.utils.DISPLAY_NAME_EXISTED
 import vinova.intern.vforum.utils.Status
-import vinova.intern.vforum.viewmodel.UserViewModel
+import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
 
 class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding

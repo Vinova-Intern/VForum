@@ -8,7 +8,7 @@
     <fragment
         tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
-        android:name="vinova.intern.vforum.ui.auth.fragment.LoginFragment"
+        android:name="vinova.intern.vforum.ui.auth.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/login_to_sign_up_action"
@@ -21,7 +21,7 @@
     <fragment
         tools:layout="@layout/fragment_sign_up"
         android:id="@+id/signUpFragment"
-        android:name="vinova.intern.vforum.ui.auth.fragment.SignUpFragment"
+        android:name="vinova.intern.vforum.ui.auth.SignUpFragment"
         android:label="SignUpFragment" >
         <action
             android:id="@+id/sign_up_to_login_action"
@@ -31,6 +31,6 @@
     <fragment
         tools:layout="@layout/fragment_sign_up_v2"
         android:id="@+id/signUpFragmentV2"
-        android:name="vinova.intern.vforum.ui.auth.fragment.SignUpFragmentV2"
+        android:name="vinova.intern.vforum.ui.auth.SignUpFragmentV2"
         android:label="SignUpFragmentV2" />
 </navigation>
