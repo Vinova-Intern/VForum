@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -62,6 +63,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
         android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="@+id/swift_refresh"
         app:layout_constraintBottom_toBottomOf="@+id/swift_refresh"
         app:backgroundTint="@color/red_dark" />

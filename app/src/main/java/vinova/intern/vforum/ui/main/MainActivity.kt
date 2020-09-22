@@ -2,6 +2,7 @@ package vinova.intern.vforum.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         if (view?.id == R.id.feed_user){
             drawer_layout.openDrawer(GravityCompat.START)
+        }
+
+        if (view?.id == R.id.post_home){
+            Log.d("gg", "mathafaka")
         }
     }
 
