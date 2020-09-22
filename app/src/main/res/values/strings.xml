@@ -52,7 +52,7 @@
     <string name="successfully">Successfully!</string>
     <string name="display_name">Display Name</string>
     <string name="enter_your_email">Enter your email</string>
-    <string name="enter_your_display_name">Enter your display name!</string>
+    <string name="enter_your_display_name">Enter your display name</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="existing_user">Existing user?</string>
     <string name="welcome">Welcome !</string>

@@ -2,14 +2,18 @@ package vinova.intern.vforum.ui.auth.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_login.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentLoginBinding
 import vinova.intern.vforum.ui.main.MainActivity
@@ -42,6 +46,12 @@ class LoginFragment : Fragment() {
 
         binding.loginTv.setOnClickListener { logIn() }
 
+        val userEdt = binding.root.findViewById<EditText>(R.id.username_edt)
+        val passwordEdt = binding.root.findViewById<EditText>(R.id.password_edt)
+
+        userEdt.addTextChangedListener(loginTextWatcher)
+        passwordEdt.addTextChangedListener(loginTextWatcher)
+
         return binding.root
     }
 
@@ -57,19 +67,31 @@ class LoginFragment : Fragment() {
             if (it.success) {
                 Log.d("SignUpFragment", "Message: ${it.message}")
                 startActivity(Intent(activity, MainActivity::class.java))
-            } else{
+            } else {
                 binding.loginMessageTv.text = it.message
                 binding.loginMessageTv.visibility = View.VISIBLE
             }
         })
 
         viewModel.status.observe(viewLifecycleOwner, Observer {
-            if (it == Status.LOADING){
+            if (it == Status.LOADING) {
                 binding.progressBar.visibility = View.VISIBLE
-            } else{
+            } else {
                 binding.progressBar.visibility = View.GONE
             }
         })
+    }
+
+    private val loginTextWatcher: TextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            val usernameInput: String = username_edt.text.toString().trim()
+            val passwordInput: String = password_edt.text.toString().trim()
+            if (usernameInput.isNotEmpty() && passwordInput.isNotEmpty()){
+                login_tv.setBackgroundResource(R.drawable.rectangle_sign_in_1)
+            } else login_tv.setBackgroundResource(R.drawable.rectangle_sign_in_0)
+        }
+        override fun afterTextChanged(s: Editable) {}
     }
 
 }

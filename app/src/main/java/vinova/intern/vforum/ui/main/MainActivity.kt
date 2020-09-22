@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             drawer_layout.openDrawer(GravityCompat.START)
         }
 
-        if (view?.id == R.id.post_home){
+        if (view?.id == R.id.log_out){
             Log.d("gg", "mathafaka")
         }
     }
