@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -57,6 +58,16 @@
             android:verticalScrollbarPosition="right" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/swift_refresh"
+        app:layout_constraintBottom_toBottomOf="@+id/swift_refresh"
+        app:backgroundTint="@color/red_dark" />
+
     <ImageView
         android:id="@+id/post_home"
         android:layout_width="wrap_content"
@@ -75,20 +86,9 @@
         android:src="@drawable/feed_event"
         android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="@+id/post_home"
-        app:layout_constraintEnd_toEndOf="@+id/post_add"
+        app:layout_constraintEnd_toEndOf="@+id/post_memory"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/feed_icon" />
-
-    <ImageView
-        android:id="@+id/post_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/feed_add"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:contentDescription="@string/post_icon" />
 
     <ImageView
         android:id="@+id/post_memory"
@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/feed_memory"
         android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toStartOf="@+id/post_add"
+        app:layout_constraintStart_toStartOf="@+id/post_event"
         app:layout_constraintEnd_toEndOf="@+id/post_notification"
         app:layout_constraintBottom_toBottomOf="parent"
         android:contentDescription="@string/feed_icon" />
