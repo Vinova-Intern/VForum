@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ffffff"
+    android:background="@drawable/login_register_background"
     android:layout_height="match_parent">
 
     <ProgressBar
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textSize="17sp"
-        android:textColor="#ff4d4d"
+        android:textColor="#ff6600"
         android:textStyle="bold"
         android:layout_marginTop="40dp"
         android:layout_marginStart="40dp"
@@ -69,15 +69,15 @@
     <EditText
         android:hint="@string/enter_your_email"
         android:id="@+id/username_edt"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="17sp"
         android:textColor="#000000"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="40dp"
         android:background="@android:color/transparent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/username_tv"
         app:layout_constraintTop_toBottomOf="@+id/username_tv"
+        app:layout_constraintEnd_toEndOf="@+id/line_1"
         android:inputType="text" />
 
     <TextView
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:text="@string/password"
         android:textSize="17sp"
-        android:textColor="#ff4d4d"
+        android:textColor="#ff6600"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:layout_marginStart="40dp"
@@ -175,7 +175,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
         android:textSize="16sp"
-        android:textColor="#ff4d4d"
+        android:textColor="#cc2900"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginStart="15dp"

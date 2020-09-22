@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#FFF">
+    android:background="@drawable/login_register_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFF">
+        android:layout_height="wrap_content">
 
         <ProgressBar
             android:visibility="gone"
@@ -65,7 +64,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:text="@string/email"
-            android:textColor="#ff4d4d"
+            android:textColor="#ff6600"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -104,7 +103,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:text="@string/display_name"
-            android:textColor="#ff4d4d"
+            android:textColor="#ff6600"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -143,7 +142,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:text="@string/password"
-            android:textColor="#ff4d4d"
+            android:textColor="#ff6600"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -193,7 +192,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:text="@string/gender"
-            android:textColor="#ff4d4d"
+            android:textColor="#ff6600"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -258,7 +257,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:text="@string/log_in"
-            android:textColor="#ff4d4d"
+            android:textColor="#cc2900"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/have_account_tv"
