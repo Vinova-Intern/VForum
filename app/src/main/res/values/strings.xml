@@ -60,4 +60,6 @@
     <string name="log_in_lower">Log in</string>
     <string name="login">Login</string>
     <string name="join_us">Join us</string>
+    <string name="feed_description">Feed Description</string>
+    <string name="feed_tags_not_official">Feed tags, not official</string>
 </resources>
