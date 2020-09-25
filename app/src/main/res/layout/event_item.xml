@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/background1"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageButton
@@ -9,11 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/feed_event3"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"
+        android:layout_marginTop="5dp"
+        android:background="@color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/event_item_icon" />
+        android:contentDescription="@string/event_item_icon"
+        app:tint="@color/black"/>
 
     <TextView
         android:id="@+id/event_item_start_date"
@@ -21,10 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:textColor="#000066"
-        android:textSize="12sp"
+        android:textColor="@color/light_orange"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:text="@string/start_date"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/event_item_icon"
@@ -37,10 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:textColor="#000066"
-        android:textSize="12sp"
+        android:textColor="@color/light_orange"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:text="@string/end_date"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/event_item_icon"
@@ -55,12 +55,12 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:textColor="#0000ff"
+        android:textColor="@color/light_orange"
         android:textSize="30sp"
         android:text="@string/event_title"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/event_item_icon"
+        app:layout_constraintStart_toEndOf="@+id/event_item_start_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +72,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textAlignment="center"
         android:text="@string/event_description"
