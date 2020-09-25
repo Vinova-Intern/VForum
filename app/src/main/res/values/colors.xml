@@ -35,6 +35,7 @@
 
 
     <color name="being_dark">#B34C26</color>
+    <color name="light_orange">#FF6600</color>
     <color name="happy">#0083ff</color>
     <color name="forgot">#007AFF</color>
     <color name="audio_background">#FDEFE9</color>

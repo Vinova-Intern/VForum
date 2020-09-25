@@ -60,4 +60,14 @@
     <string name="log_in_lower">Log in</string>
     <string name="login">Login</string>
     <string name="join_us">Join us</string>
+    <string name="feed_description">Feed Description</string>
+    <string name="feed_tags_not_official">Feed tags, not official</string>
+    <string name="group">Group</string>
+    <string name="post_description_edt">Post description: </string>
+    <string name="post_title_edt">Post title:</string>
+    <string name="post_by_edt">Post by:</string>
+    <string name="topic_edt">Topic:</string>
+    <string name="group_edt">Group:</string>
+    <string name="create">CREATE</string>
+    <string name="create_post">CREATE POST</string>
 </resources>
