@@ -21,6 +21,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <TextView
+        android:layout_marginStart="4dp"
+        android:id="@+id/groupname_post_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="22sp"
+        android:textColor="@color/yellow"
+        app:layout_constraintTop_toTopOf="@+id/group_tv"
+        app:layout_constraintStart_toEndOf="@+id/group_tv"/>
+
+    <TextView
+        android:layout_marginStart="4dp"
+        android:id="@+id/group_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="18sp"
+        android:textColor="@color/yellow"
+        app:layout_constraintTop_toTopOf="@+id/topic_tv"
+        app:layout_constraintStart_toEndOf="@+id/topic_tv"/>
+
     <ImageView
         android:id="@+id/option_iv"
         android:layout_width="wrap_content"
