@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        feed_user.setOnClickListener(this)
+        user_icon.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        if (view?.id == R.id.feed_user){
+        if (view?.id == R.id.user_icon){
             drawer_layout.openDrawer(GravityCompat.START)
         }
 
