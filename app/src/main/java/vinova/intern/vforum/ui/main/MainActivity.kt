@@ -29,10 +29,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (view?.id == R.id.user_icon){
             drawer_layout.openDrawer(GravityCompat.START)
         }
-
-        if (view?.id == R.id.log_out){
-            Log.d("gg", "mathafaka")
-        }
     }
 
     override fun onBackPressed() {
