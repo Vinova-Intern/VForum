@@ -2,7 +2,6 @@ package vinova.intern.vforum.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        feed_user.setOnClickListener(this)
+        user_icon.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -26,12 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        if (view?.id == R.id.feed_user){
+        if (view?.id == R.id.user_icon){
             drawer_layout.openDrawer(GravityCompat.START)
-        }
-
-        if (view?.id == R.id.log_out){
-            Log.d("gg", "mathafaka")
         }
     }
 
