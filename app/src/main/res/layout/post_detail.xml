@@ -131,17 +131,6 @@
         app:layout_constraintStart_toStartOf="@+id/detail_group_tv"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/detail_line1"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="20dp"
-        android:background="#3333ff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_post_description_tv" />
-
     <ImageView
         android:id="@+id/detail_like_iv"
         android:layout_width="wrap_content"
