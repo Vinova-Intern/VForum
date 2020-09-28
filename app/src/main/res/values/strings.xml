@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">VForum</string>
-    <string name="group_name">Group name</string>
+    <string name="group_name">Group </string>
     <string name="option_image">Option Image</string>
     <string name="topic">Topic</string>
     <string name="name">Name</string>
@@ -52,7 +52,7 @@
     <string name="successfully">Successfully!</string>
     <string name="display_name">Display Name</string>
     <string name="enter_your_email">Enter your email</string>
-    <string name="enter_your_display_name">Enter your display name!</string>
+    <string name="enter_your_display_name">Enter your display name</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="existing_user">Existing user?</string>
     <string name="welcome">Welcome !</string>
@@ -68,4 +68,15 @@
     <string name="event">Event</string>
     <string name="notification">Notification</string>
     <string name="show_topic">Show topic</string>
+    <string name="feed_description">Feed Description</string>
+    <string name="feed_tags_not_official">Feed tags, not official</string>
+    <string name="group">Group</string>
+    <string name="post_description_edt">Post description: *</string>
+    <string name="post_title_edt">Post title: *</string>
+    <string name="topic_edt">Topic:</string>
+    <string name="group_edt">Group:</string>
+    <string name="create">CREATE</string>
+    <string name="create_post">CREATE POST</string>
+    <string name="update">Update</string>
+    <string name="update_post">Update post</string>
 </resources>

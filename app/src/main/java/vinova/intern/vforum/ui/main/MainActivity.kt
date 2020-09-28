@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -33,17 +32,24 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_main_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_main_fragment) as NavHostFragment
 
         NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.memoryFragment, R.id.eventFragment, R.id.notificationFragment))
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.memoryFragment,
+                R.id.eventFragment,
+                R.id.notificationFragment
+            )
+        )
         Log.d("MainActivity", "Action bar: $supportActionBar")
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
     }
-
 
     override fun onBackPressed() {
         val intent = Intent(Intent.ACTION_MAIN)
