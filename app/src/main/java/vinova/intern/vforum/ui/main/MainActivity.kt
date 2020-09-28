@@ -5,19 +5,27 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.vforum_homepage.*
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import vinova.intern.vforum.R
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        supportActionBar?.hide()
+
         setContentView(R.layout.activity_main)
 
-        feed_user.setOnClickListener(this)
+        setupViews()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -25,15 +33,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return true
     }
 
-    override fun onClick(view: View?) {
-        if (view?.id == R.id.feed_user){
-            drawer_layout.openDrawer(GravityCompat.START)
-        }
+    private fun setupViews(){
+        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_main_fragment) as NavHostFragment
 
-        if (view?.id == R.id.post_home){
-            Log.d("gg", "mathafaka")
-        }
+        NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
+
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.memoryFragment, R.id.eventFragment, R.id.notificationFragment))
+        Log.d("MainActivity", "Action bar: $supportActionBar")
+        setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
     }
+
 
     override fun onBackPressed() {
         val intent = Intent(Intent.ACTION_MAIN)

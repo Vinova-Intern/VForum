@@ -63,4 +63,9 @@
     <string name="android">Android</string>
     <string name="created_by">Created by</string>
     <string name="kane">Kane</string>
+    <string name="home">Home</string>
+    <string name="memory">Memory</string>
+    <string name="event">Event</string>
+    <string name="notification">Notification</string>
+    <string name="show_topic">Show topic</string>
 </resources>

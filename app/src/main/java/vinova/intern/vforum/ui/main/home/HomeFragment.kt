@@ -2,15 +2,14 @@ package vinova.intern.vforum.ui.main.home
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import vinova.intern.vforum.databinding.FragmentHomeBinding
 import vinova.intern.vforum.model.group.Group
-import vinova.intern.vforum.ui.main.home.adapter.HomeAdapter
+import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
 import vinova.intern.vforum.utils.AUTHORIZATION_ARG
 import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
@@ -18,7 +17,7 @@ import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-    private lateinit var adapter: HomeAdapter
+    private lateinit var adapter: GroupAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,15 +31,18 @@ class HomeFragment : Fragment() {
         setupUI()
         setupObservers()
 
+        Log.d("HomeFragment", "ActionBar: ${(activity as AppCompatActivity).actionBar}")
+        Log.d("HomeFragment", "SupportActionBar: ${(activity as AppCompatActivity).supportActionBar}")
+
         return binding.root
     }
 
     private fun setupUI(){
-        adapter = HomeAdapter(arrayListOf())
+        adapter = GroupAdapter(requireContext(), arrayListOf())
         binding.groupRecyclerView.adapter = adapter
     }
 
-    private fun setupObservers{
+    private fun setupObservers(){
         val authorization = activity?.intent?.getStringExtra(AUTHORIZATION_ARG)
 
         viewModel.getGroups(BEARER_AUTHORIZATION + authorization)

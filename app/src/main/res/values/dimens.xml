@@ -45,5 +45,9 @@
     <dimen name="small_text_size">12sp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="large_text_size">25sp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="large_margin">40dp</dimen>
+    <dimen name="logo_dimen">150dp</dimen>
 
 </resources>

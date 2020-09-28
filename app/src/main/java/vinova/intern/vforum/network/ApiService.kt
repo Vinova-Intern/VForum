@@ -5,6 +5,7 @@ import retrofit2.http.*
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
+import vinova.intern.vforum.model.topic.TopicResponse
 
 interface ApiService {
     @FormUrlEncoded
@@ -27,4 +28,10 @@ interface ApiService {
     fun getGroups(
         @Header("Authorization") authorization: String
     ): Single<GroupResponse>
+
+    @GET("group/{group_id}/topic")
+    fun getTopics(
+        @Header("Authorization") authorization: String,
+        @Path("group_id") group_id: String
+    ): Single<TopicResponse>
 }

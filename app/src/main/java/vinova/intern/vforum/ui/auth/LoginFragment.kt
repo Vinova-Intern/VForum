@@ -12,10 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentLoginBinding
+import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
 import vinova.intern.vforum.ui.main.MainActivity
 import vinova.intern.vforum.utils.AUTHORIZATION_ARG
+import vinova.intern.vforum.utils.SaveSharedPreference
 import vinova.intern.vforum.utils.Status
-import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -27,17 +28,12 @@ class LoginFragment : Fragment() {
     ): View? {
 
         binding = FragmentLoginBinding.inflate(inflater)
+
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.signUpClickTv.setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.loginFragment) {
                 findNavController().navigate(R.id.login_to_sign_up_action)
-            }
-        }
-
-        binding.haveAccountTv.setOnClickListener {
-            if (findNavController().currentDestination?.id == R.id.loginFragment) {
-                findNavController().navigate(R.id.test_sign_up_ui_ver2_action)
             }
         }
 
@@ -47,7 +43,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun logIn() {
-        val email = binding.usernameEdt.text.toString()
+        val email = binding.emailEdt.text.toString()
         val password = binding.passwordEdt.text.toString()
         viewModel.login(email, password)
         handleResponse()
@@ -57,6 +53,8 @@ class LoginFragment : Fragment() {
         viewModel.loginData.observe(viewLifecycleOwner, Observer {
             if (it.success) {
                 Log.d("SignUpFragment", "Message: ${it.message}")
+                SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, true)
+                SaveSharedPreference().setAccessToken(activity?.applicationContext!!, it.result.accessToken)
                 val intent = Intent(activity, MainActivity::class.java)
                 intent.putExtra(AUTHORIZATION_ARG, it.result.accessToken)
                 startActivity(intent)

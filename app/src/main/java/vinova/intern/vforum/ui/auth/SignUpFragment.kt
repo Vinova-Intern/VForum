@@ -27,7 +27,7 @@ class SignUpFragment : Fragment() {
         binding = FragmentSignUpBinding.inflate(inflater)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        binding.loginTv.setOnClickListener { signUp() }
+        binding.signUpTv.setOnClickListener { signUp() }
 
         return binding.root
     }
