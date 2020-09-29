@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.requestFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
 
         setContentView(R.layout.activity_main)
@@ -27,10 +28,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.homepage_menu, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.homepage_menu, menu)
+//        return true
+//    }
 
     private fun setupViews() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -47,7 +48,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.notificationFragment
             )
         )
-        Log.d("MainActivity", "Action bar: $supportActionBar")
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
     }
 

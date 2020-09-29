@@ -79,4 +79,7 @@
     <string name="create_post">CREATE POST</string>
     <string name="update">Update</string>
     <string name="update_post">Update post</string>
+    <string name="user">User</string>
+    <string name="setting">Setting</string>
+    <string name="member">Member</string>
 </resources>

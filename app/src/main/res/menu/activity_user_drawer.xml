@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/change_password"
-            android:icon="@drawable/user_change_password"
-            android:title="@string/change_password" />
+            android:id="@+id/user_info"
+            android:icon="@drawable/ic_person"
+            android:title="@string/user" />
         <item
             android:id="@+id/my_post"
             android:icon="@drawable/user_my_post"
             android:title="@string/my_post" />
-
+        <item
+            android:id="@+id/setting"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="@string/setting" />
         <item
             android:id="@+id/log_out"
             android:icon="@drawable/user_log_out"
