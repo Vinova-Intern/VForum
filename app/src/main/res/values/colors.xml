@@ -11,7 +11,7 @@
     <color name="mapping_color">#92e8ff</color>
     <color name="mapping_color_dary">#77e1fd</color>
     <color name="app_background">#F5F5F5</color>
-
+    <color name="free_speech_red">#B30000</color>
 
     <color name="img_1">#b5bfce</color>
     <color name="img_2">#ced3da</color>
@@ -45,6 +45,9 @@
     <color name="cal">#ff0801</color>
     <color name="white_trans">#99FFFFFF</color>
 
+    <color name="normal_red">#FF0000</color>
+    <color name="dark_red">#CC0000</color>
+    <color name="red_orange">#ff3333</color>
     <color name="red_dark">#F06423</color>
     <color name="red_dark2">#D85A1B</color>
     <color name="cyan_light">#c9ebee</color>
