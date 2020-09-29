@@ -5,8 +5,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import vinova.intern.vforum.utils.EMULATOR_LOCAL_HOST
 import java.util.concurrent.TimeUnit
 
+/*
 object Client {
     fun getClient(): ApiService {
         val logging = HttpLoggingInterceptor()
@@ -19,10 +21,10 @@ object Client {
 
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("http:/192.168.0.128:4000/v1/api/")
+            .baseUrl(EMULATOR_LOCAL_HOST)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(ApiService::class.java)
     }
-}
+}*/

@@ -54,7 +54,7 @@ class GroupAdapter(private val context: Context, private val listGroup: ArrayLis
 
                     val authorization = SaveSharedPreference().getAccessToken(itemView.context?.applicationContext!!)
                     Log.d("GroupAdapter", "Authorization: $authorization")
-                    viewModel.getTopics(BEARER_AUTHORIZATION + authorization, item.id)
+                    viewModel.getTopics(authorization!!, item.id)
                     viewModel.topicsData.observe(itemView.context as LifecycleOwner, Observer {observerTopic ->
                         observerTopic.let { response ->
                             if (response.success) {

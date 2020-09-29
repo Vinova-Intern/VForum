@@ -43,7 +43,9 @@
     <dimen name="vector_width">24dp</dimen>
     <dimen name="standard_size_text">15sp</dimen>
     <dimen name="small_text_size">12sp</dimen>
+    <dimen name="medium_text_size">18sp</dimen>
     <dimen name="small_margin">8dp</dimen>
+    <dimen name="smaller_margin">4.5dp</dimen>
     <dimen name="large_text_size">25sp</dimen>
     <dimen name="standard_margin">16dp</dimen>
     <dimen name="small_padding">8dp</dimen>

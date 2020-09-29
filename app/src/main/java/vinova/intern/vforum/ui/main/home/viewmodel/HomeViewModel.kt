@@ -11,19 +11,20 @@ import io.reactivex.schedulers.Schedulers
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.sign_up.SignUpUser
 import vinova.intern.vforum.model.topic.TopicResponse
-import vinova.intern.vforum.network.Client
+import vinova.intern.vforum.network.ApiServiceCaller
 
 class HomeViewModel: ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
-    private val apiService = Client.getClient()
+    /*private val apiService = Client.getClient()*/
+    private val apiManager:ApiServiceCaller by lazy { ApiServiceCaller() }
 
     val groupsData: MutableLiveData<GroupResponse> = MutableLiveData()
     val topicsData: MutableLiveData<TopicResponse> = MutableLiveData()
 
     fun getGroups(authorization: String){
         compositeDisposable.add(
-            apiService.getGroups(authorization)
+            apiManager.getGroups(authorization)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -36,7 +37,7 @@ class HomeViewModel: ViewModel() {
 
     fun getTopics(authorization: String, groupId: String){
         compositeDisposable.add(
-            apiService.getTopics(authorization, groupId)
+            apiManager.getTopics(authorization, groupId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

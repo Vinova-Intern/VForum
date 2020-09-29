@@ -8,12 +8,14 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
-import vinova.intern.vforum.network.Client
+import vinova.intern.vforum.network.ApiServiceCaller
 import vinova.intern.vforum.utils.Status
 
 class UserViewModel: ViewModel() {
     private val compositeDisposable = CompositeDisposable()
-    private val apiService = Client.getClient()
+    /*private val apiService = Client.getClient()*/
+
+    private val apiManager:ApiServiceCaller by lazy { ApiServiceCaller() }
 
     val signUpData: MutableLiveData<SignUpUser> = MutableLiveData()
     val loginData: MutableLiveData<LoginUser> = MutableLiveData()
@@ -28,7 +30,12 @@ class UserViewModel: ViewModel() {
         Log.d("UserViewModel", "Sign up with: $email $password $displayName $gender")
         status.value = Status.LOADING
         compositeDisposable.add(
-            apiService.signUp(email, password, displayName, gender)
+            apiManager.signUp(
+                    email,
+                    password,
+                    displayName,
+                    gender
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -48,7 +55,10 @@ class UserViewModel: ViewModel() {
     ){
         status.value = Status.LOADING
         compositeDisposable.add(
-            apiService.login(email, password)
+            apiManager.login(
+                    email,
+                    password
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

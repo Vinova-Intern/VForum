@@ -1,6 +1,7 @@
 package vinova.intern.vforum.network
 
 import io.reactivex.Single
+import retrofit2.Call
 import retrofit2.http.*
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
@@ -13,7 +14,7 @@ interface ApiService {
     fun login(
         @Field("email") username: String,
         @Field("password") password: String
-    ): Single<LoginUser>
+    ): Call<LoginUser>
 
     @FormUrlEncoded
     @POST("signup")
@@ -22,16 +23,16 @@ interface ApiService {
         @Field("password") password: String,
         @Field("display_name") display_name: String,
         @Field("gender") gender: String
-    ): Single<SignUpUser>
+    ): Call<SignUpUser>
 
     @GET("group")
     fun getGroups(
         @Header("Authorization") authorization: String
-    ): Single<GroupResponse>
+    ): Call<GroupResponse>
 
     @GET("group/{group_id}/topic")
     fun getTopics(
         @Header("Authorization") authorization: String,
         @Path("group_id") group_id: String
-    ): Single<TopicResponse>
+    ): Call<TopicResponse>
 }

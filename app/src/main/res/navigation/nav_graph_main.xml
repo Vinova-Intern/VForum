@@ -9,7 +9,12 @@
         android:id="@+id/homeFragment"
         android:name="vinova.intern.vforum.ui.main.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_to_create_post_action"
+            app:destination="@id/createPostFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/memoryFragment"
         android:name="vinova.intern.vforum.ui.main.memory.MemoryFragment"
@@ -25,4 +30,13 @@
         android:name="vinova.intern.vforum.ui.main.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="vinova.intern.vforum.ui.main.createpost.CreatePostFragment"
+        android:label="CreatePostFragment"
+        tools:layout="@layout/fragment_create_post">
+        <action
+            android:id="@+id/create_post_to_home_action"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
