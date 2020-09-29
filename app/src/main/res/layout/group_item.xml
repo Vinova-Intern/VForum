@@ -43,14 +43,14 @@
         android:textSize="14sp"
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginStart="@dimen/lineSpacingExtra_4"
         android:id="@+id/created_by_user_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <ImageView
         android:id="@+id/show_topic_iv"
-        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+        android:src="@drawable/ic_dropdown_circle"
         android:layout_margin="@dimen/standard_margin"
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
