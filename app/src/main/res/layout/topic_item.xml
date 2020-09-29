@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ff4d4d"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/white"/>
+
+    <ImageView
+        android:id="@+id/topic_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginStart="@dimen/small_margin"
+        android:src="@drawable/ic_topic"
+        app:tint="#ffff66" />
 
     <TextView
         android:layout_marginTop="@dimen/small_margin"
         android:text="@string/android"
         android:textSize="@dimen/standard_size_text"
+        android:textStyle="bold"
+        android:textColor="#ffffb3"
         android:layout_marginStart="@dimen/small_margin"
         android:id="@+id/topic_name_tv"
+        android:layout_toEndOf="@id/topic_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -17,6 +36,8 @@
         android:layout_below="@id/topic_name_tv"
         android:text="@string/created_by"
         android:textSize="@dimen/small_text_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginTop="@dimen/small_margin"
         android:layout_marginStart="@dimen/small_margin"
         android:id="@+id/created_by_tv"
@@ -28,6 +49,8 @@
         android:layout_below="@id/topic_name_tv"
         android:text="@string/kane"
         android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_marginTop="@dimen/small_margin"
         android:layout_marginStart="@dimen/small_margin"
         android:id="@+id/created_by_user_tv"
