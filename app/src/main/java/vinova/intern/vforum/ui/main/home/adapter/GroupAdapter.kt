@@ -19,7 +19,7 @@ import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.utils.BaseViewHolder
 import vinova.intern.vforum.utils.SaveSharedPreference
 
-class GroupAdapter(private val context: Context, private val listGroup: ArrayList<Group>): RecyclerView.Adapter<BaseViewHolder<*>>() {
+class GroupAdapter(context: Context, private val listGroup: ArrayList<Group>): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     private val viewModel = ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
     private lateinit var adapter: TopicAdapter
@@ -62,7 +62,6 @@ class GroupAdapter(private val context: Context, private val listGroup: ArrayLis
                             } else {
                                 Log.d("HomeFragment", "Failure!")
                             }
-
                         }
                     })
                     topic_recycler_view.visibility = View.VISIBLE

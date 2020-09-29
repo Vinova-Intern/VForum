@@ -44,13 +44,18 @@ class HomeFragment : Fragment() {
 
     private fun setupObservers(){
         val authorization = activity?.intent?.getStringExtra(AUTHORIZATION_ARG)
+        val bearerAuthorization = BEARER_AUTHORIZATION + authorization
 
-        viewModel.getGroups(BEARER_AUTHORIZATION + authorization)
+        viewModel.getGroups(bearerAuthorization)
 
         viewModel.groupsData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
                     retrieveListGroup(response.result)
+                    for (item in response.result){
+                        viewModel.getTopics(bearerAuthorization, item.id)
+                    }
+
                 } else{
                     Log.d("HomeFragment", "Failure!")
                 }

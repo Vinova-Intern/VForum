@@ -2,6 +2,7 @@ package vinova.intern.vforum.model.group
 
 
 import com.google.gson.annotations.SerializedName
+import vinova.intern.vforum.model.topic.Topic
 
 data class Group(
     @SerializedName("createdAt")
@@ -11,5 +12,6 @@ data class Group(
     @SerializedName("_id")
     val id: String,
     @SerializedName("name")
-    val name: String
+    val name: String,
+    val topics: List<Topic>
 )

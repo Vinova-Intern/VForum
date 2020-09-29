@@ -10,6 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.sign_up.SignUpUser
+import vinova.intern.vforum.model.topic.Topic
 import vinova.intern.vforum.model.topic.TopicResponse
 import vinova.intern.vforum.network.Client
 
@@ -20,6 +21,7 @@ class HomeViewModel: ViewModel() {
 
     val groupsData: MutableLiveData<GroupResponse> = MutableLiveData()
     val topicsData: MutableLiveData<TopicResponse> = MutableLiveData()
+    val listTopicByGroupIdData: MutableLiveData<HashMap<String, List<Topic>>> = MutableLiveData()
 
     fun getGroups(authorization: String){
         compositeDisposable.add(
@@ -41,6 +43,7 @@ class HomeViewModel: ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     topicsData.value = it
+                    listTopicByGroupIdData.value?.put(groupId, it.result)
                 },{
                     Log.d("HomeViewModel", "Failure: ${it.message}")
                 })
