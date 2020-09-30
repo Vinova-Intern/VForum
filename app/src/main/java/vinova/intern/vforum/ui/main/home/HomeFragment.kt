@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
+import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentHomeBinding
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
@@ -28,6 +32,12 @@ class HomeFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
+        binding.createPostFab.setOnClickListener{
+            if (findNavController().currentDestination?.id == R.id.homeFragment) {
+                findNavController().navigate(R.id.home_to_create_post_action)
+            }
+        }
+
         setupUI()
         setupObservers()
 
@@ -38,22 +48,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupUI(){
-        adapter = GroupAdapter(requireContext(), arrayListOf())
+        adapter = GroupAdapter(arrayListOf())
         binding.groupRecyclerView.adapter = adapter
     }
 
     private fun setupObservers(){
         val authorization = activity?.intent?.getStringExtra(AUTHORIZATION_ARG)
-        val bearerAuthorization = BEARER_AUTHORIZATION + authorization
 
-        viewModel.getGroups(bearerAuthorization)
+        viewModel.getGroups(authorization!!)
 
         viewModel.groupsData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
                     retrieveListGroup(response.result)
                     for (item in response.result){
-                        viewModel.getTopics(bearerAuthorization, item.id)
+                        viewModel.getTopics(authorization, item.id)
                     }
 
                 } else{

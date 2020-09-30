@@ -1,10 +1,13 @@
 package vinova.intern.vforum.ui.main.home.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -19,10 +22,8 @@ import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.utils.BaseViewHolder
 import vinova.intern.vforum.utils.SaveSharedPreference
 
-class GroupAdapter(context: Context, private val listGroup: ArrayList<Group>): RecyclerView.Adapter<BaseViewHolder<*>>() {
+class GroupAdapter(private val listGroup: ArrayList<Group>): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    private val viewModel = ViewModelProvider(context as FragmentActivity).get(HomeViewModel::class.java)
-    private lateinit var adapter: TopicAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.group_item, parent, false)
@@ -42,36 +43,29 @@ class GroupAdapter(context: Context, private val listGroup: ArrayList<Group>): R
     }
 
     inner class GroupViewHolder(view: View): BaseViewHolder<Group>(view){
+        @SuppressLint("InflateParams")
         override fun bind(item: Group, position: Int) {
             with(itemView){
                 group_name_tv.text = item.name
                 created_by_user_tv.text = item.createdBy
 
+                Log.d("GroupAdapter", "Topic list size: ${item.topics.size}")
                 // show list topic
                 show_topic_iv.setOnClickListener {
-                    adapter = TopicAdapter(arrayListOf())
-                    topic_recycler_view.adapter = adapter
 
-                    val authorization = SaveSharedPreference().getAccessToken(itemView.context?.applicationContext!!)
-                    Log.d("GroupAdapter", "Authorization: $authorization")
-                    viewModel.getTopics(BEARER_AUTHORIZATION + authorization, item.id)
-                    viewModel.topicsData.observe(itemView.context as LifecycleOwner, Observer {observerTopic ->
-                        observerTopic.let { response ->
-                            if (response.success) {
-                                retrieveListTopic(response.result)
-                            } else {
-                                Log.d("HomeFragment", "Failure!")
-                            }
-                        }
-                    })
-                    topic_recycler_view.visibility = View.VISIBLE
+                    val inflate: LayoutInflater = itemView.context.applicationContext.getSystemService((Context.LAYOUT_INFLATER_SERVICE)) as LayoutInflater
+                    val ll = inflate.inflate(R.layout.topic_item, null)
+                    for (topic in item.topics){
+                        Log.d("GroupAdapter", "Topic info: ${topic.description}")
+                        topic_scroll_view.addView(ll)
+                    }
+
                     it.visibility = View.GONE
                     hide_topic_iv.visibility = View.VISIBLE
                 }
 
                 // hide list topic
                 hide_topic_iv.setOnClickListener {
-                    topic_recycler_view.visibility = View.GONE
                     it.visibility = View.GONE
                     show_topic_iv.visibility = View.VISIBLE
                 }
@@ -85,12 +79,4 @@ class GroupAdapter(context: Context, private val listGroup: ArrayList<Group>): R
             addAll(groups)
         }
     }
-
-    private fun retrieveListTopic(topics: List<Topic>){
-        adapter.apply {
-            addTopic(topics)
-            notifyDataSetChanged()
-        }
-    }
-
 }

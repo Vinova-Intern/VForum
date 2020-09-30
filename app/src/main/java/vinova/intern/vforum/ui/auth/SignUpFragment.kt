@@ -34,6 +34,11 @@ class SignUpFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.signUpTv.setOnClickListener { signUp() }
+        binding.loginClickTv.setOnClickListener {
+            if (findNavController().currentDestination?.id == R.id.signUpFragment) {
+                findNavController().navigate(R.id.sign_up_to_login_action)
+            }
+        }
 
         val emailEdt = binding.root.findViewById<EditText>(R.id.email_edt)
         val displayNameEdt = binding.root.findViewById<EditText>(R.id.display_name_edt)

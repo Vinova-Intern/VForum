@@ -18,7 +18,7 @@
         android:text="@string/android"
         android:textSize="@dimen/large_text_size"
         android:layout_toEndOf="@id/group_icon"
-        android:textColor="#ff"
+        android:textColor="#000"
         android:layout_marginStart="@dimen/small_margin"
         android:textStyle="bold"
         android:id="@+id/group_name_tv"
@@ -75,12 +75,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="visible"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <ScrollView
         android:layout_marginStart="@dimen/standard_margin"
-        android:id="@+id/topic_recycler_view"
-        tools:listitem="@layout/topic_item"
+        android:id="@+id/topic_scroll_view"
         android:layout_below="@id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

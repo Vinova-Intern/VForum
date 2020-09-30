@@ -2,10 +2,7 @@ package vinova.intern.vforum.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +10,8 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import vinova.intern.vforum.R
+import vinova.intern.vforum.utils.SaveSharedPreference
+import vinova.intern.vforum.utils.SoftInputAssist
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,14 +23,14 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        if(SaveSharedPreference().getLoggedStatus(this)){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         setupViews()
 
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        menuInflater.inflate(R.menu.homepage_menu, menu)
-//        return true
-//    }
 
     private fun setupViews() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
