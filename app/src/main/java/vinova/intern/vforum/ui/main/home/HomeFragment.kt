@@ -17,6 +17,7 @@ import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
 import vinova.intern.vforum.utils.AUTHORIZATION_ARG
 import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
+import vinova.intern.vforum.utils.SaveSharedPreference
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -41,9 +42,6 @@ class HomeFragment : Fragment() {
         setupUI()
         setupObservers()
 
-        Log.d("HomeFragment", "ActionBar: ${(activity as AppCompatActivity).actionBar}")
-        Log.d("HomeFragment", "SupportActionBar: ${(activity as AppCompatActivity).supportActionBar}")
-
         return binding.root
     }
 
@@ -53,20 +51,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers(){
-        val authorization = activity?.intent?.getStringExtra(AUTHORIZATION_ARG)
+        val authorization = SaveSharedPreference().getAccessToken(requireContext())
+        Log.d("HomeFragment" , "Get access token: $authorization")
 
         viewModel.getGroups(authorization!!)
+
+        Log.i("HomeFragment", "get group done!")
 
         viewModel.groupsData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
+                    Log.i("HomeFragment", "Success!")
                     retrieveListGroup(response.result)
-                    for (item in response.result){
-                        viewModel.getTopics(authorization, item.id)
-                    }
 
                 } else{
-                    Log.d("HomeFragment", "Failure!")
+                    Log.i("HomeFragment", "Failure!")
                 }
 
             }

@@ -75,9 +75,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_marginStart="@dimen/standard_margin"
-        android:id="@+id/topic_scroll_view"
+        android:id="@+id/list_topic_ll"
         android:layout_below="@id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

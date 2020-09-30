@@ -23,10 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        if(SaveSharedPreference().getLoggedStatus(this)){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+
 
         setupViews()
 

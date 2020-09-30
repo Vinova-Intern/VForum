@@ -59,11 +59,12 @@ class LoginFragment : Fragment() {
     private fun handleResponse() {
         viewModel.loginData.observe(viewLifecycleOwner, Observer {
             if (it.success) {
-                Log.d("SignUpFragment", "Message: ${it.message}")
+                Log.d("LoginFragment", "Message: ${it.message}")
                 SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, true)
                 SaveSharedPreference().setAccessToken(activity?.applicationContext!!, it.result.accessToken)
                 val intent = Intent(activity, MainActivity::class.java)
                 intent.putExtra(AUTHORIZATION_ARG, it.result.accessToken)
+                Log.d("LoginFragment", "Access token: ${it.result.accessToken}")
                 startActivity(intent)
             }  else {
                 binding.loginMessageTv.text = it.message
