@@ -43,5 +43,9 @@
         tools:layout="@layout/fragment_user"
         android:id="@+id/userFragment"
         android:name="vinova.intern.vforum.ui.main.user.UserFragment"
-        android:label="UserFragment" />
+        android:label="UserFragment">
+        <action
+            android:id="@+id/create_post_to_user_action"
+            app:destination="@id/userFragment" />
+    </fragment>
 </navigation>

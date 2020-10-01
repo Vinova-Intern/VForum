@@ -3,6 +3,7 @@ package vinova.intern.vforum.ui.main.home
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -17,9 +18,10 @@ import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
 import vinova.intern.vforum.utils.AUTHORIZATION_ARG
 import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
+import vinova.intern.vforum.ui.main.user.UserFragment
 import vinova.intern.vforum.utils.SaveSharedPreference
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(){
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
     private lateinit var adapter: GroupAdapter
@@ -36,6 +38,12 @@ class HomeFragment : Fragment() {
         binding.createPostFab.setOnClickListener{
             if (findNavController().currentDestination?.id == R.id.homeFragment) {
                 findNavController().navigate(R.id.home_to_create_post_action)
+            }
+        }
+
+        binding.createPostFab.setOnClickListener{
+            if (findNavController().currentDestination?.id == R.id.userFragment) {
+                findNavController().navigate(R.id.create_post_to_user_action)
             }
         }
 

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_user.*
@@ -27,8 +28,17 @@ class UserFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user, container, false)
-        val logOut = view.findViewById<ImageButton>(R.id.img_btn_log_out)
+
+        val logOutBtn = view.findViewById<ImageButton>(R.id.img_btn_log_out)
+        val logOut = view.findViewById<TextView>(R.id.txt_log_out)
+        val changeAvatarBtn = view.findViewById<ImageButton>(R.id.img_btn_change_avatar)
+        val changeAvatar = view.findViewById<TextView>(R.id.txt_change_avatar)
+
+        logOutBtn.setOnClickListener(this)
         logOut.setOnClickListener(this)
+        changeAvatarBtn.setOnClickListener(this)
+        changeAvatar.setOnClickListener(this)
+
         return view
     }
 
@@ -70,7 +80,9 @@ class UserFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id){
             R.id.img_btn_log_out -> logOut()
+            R.id.txt_log_out -> logOut()
             R.id.img_btn_change_avatar -> openGalleryForImage()
+            R.id.txt_change_avatar -> openGalleryForImage()
         }
     }
 }
