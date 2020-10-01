@@ -13,5 +13,6 @@ data class Group(
     val id: String,
     @SerializedName("name")
     val name: String,
-    var topics: List<Topic>
+    var topics: List<Topic>?,
+    var isExpanded: Boolean = false
 )

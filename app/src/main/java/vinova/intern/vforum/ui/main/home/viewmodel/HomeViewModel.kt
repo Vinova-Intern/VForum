@@ -11,6 +11,7 @@ import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.topic.TopicResponse
 import vinova.intern.vforum.network.ApiServiceCaller
+import vinova.intern.vforum.utils.Status
 import vinova.intern.vforum.utils.reLogin
 import java.util.function.Function
 
@@ -20,16 +21,18 @@ class HomeViewModel : ViewModel() {
     private val apiManager: ApiServiceCaller by lazy { ApiServiceCaller() }
 
     val groupsData = MutableLiveData<GroupResponse>()
-    val mediatorGroupData = MediatorLiveData<GroupResponse>()
+    val status: MutableLiveData<Status> = MutableLiveData()
 
     private val topicsData: MutableLiveData<TopicResponse> = MutableLiveData()
 
     fun getGroups(authorization: String) {
+        status.value = Status.LOADING
         compositeDisposable.add(
             apiManager.getGroups(authorization)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    status.value = Status.SUCCESS
                     groupsData.value = it
                     groupsData.value?.result?.forEach { item ->
                         getTopics(authorization, item)

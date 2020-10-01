@@ -54,6 +54,7 @@ class RetrofitClientInstance {
                                 200 -> {
                                     it.onSuccess(response.body()!!)
                                 }
+                                400 -> it.onError(Throwable(response.message()))
                                 401 -> it.onError(Throwable(response.message()))
                             }
                         } catch (ex: Exception) {

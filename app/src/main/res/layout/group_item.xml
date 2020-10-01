@@ -48,24 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:id="@+id/show_topic_iv"
-        android:src="@drawable/ic_dropdown_circle"
-        android:layout_margin="@dimen/standard_margin"
+    <TextView
+        android:id="@+id/topic_counter_tv"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:text="@string/_10_topics"
+        android:layout_above="@id/line"
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/show_topic" />
-
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/hide_topic_iv"
-        android:src="@drawable/ic_baseline_arrow_drop_up_24"
-        android:layout_margin="@dimen/standard_margin"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/show_topic" />
+        android:layout_height="wrap_content"/>
 
     <View
         android:id="@+id/line"
@@ -76,9 +66,20 @@
         android:layout_height="1dp"/>
 
     <LinearLayout
+        android:visibility="gone"
         android:orientation="vertical"
         android:layout_marginStart="@dimen/standard_margin"
         android:id="@+id/list_topic_ll"
+        android:layout_below="@id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/no_topic_tv"
+        android:layout_marginTop="@dimen/small_margin"
+        android:gravity="center"
+        android:text="@string/this_group_has_no_topic"
         android:layout_below="@id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

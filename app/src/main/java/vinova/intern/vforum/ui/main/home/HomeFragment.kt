@@ -2,22 +2,19 @@ package vinova.intern.vforum.ui.main.home
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentHomeBinding
-import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
-import vinova.intern.vforum.utils.AUTHORIZATION_ARG
-import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
+import vinova.intern.vforum.utils.Status
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -46,7 +43,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupUI(){
-        adapter = GroupAdapter(arrayListOf())
+        adapter = GroupAdapter()
         binding.groupRecyclerView.adapter = adapter
     }
 
@@ -59,7 +56,7 @@ class HomeFragment : Fragment() {
         viewModel.groupsData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
-                    retrieveListGroup(response.result)
+                    adapter.addGroup(response.result)
 
                 } else{
                     Log.i("HomeFragment", "Failure!")
@@ -67,13 +64,25 @@ class HomeFragment : Fragment() {
 
             }
         })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            if (it == Status.LOADING) {
+                Log.i("HomeFragment", "LOADING")
+                binding.groupShimmerRecyclerView.visibility = View.VISIBLE
+                binding.groupRecyclerView.visibility = View.GONE
+            } else {
+                Log.i("HomeFragment", "$it")
+                binding.groupShimmerRecyclerView.visibility = View.GONE
+                binding.groupRecyclerView.visibility = View.VISIBLE
+            }
+        })
     }
 
-    private fun retrieveListGroup(groups: List<Group>){
-        adapter.apply {
-            addGroup(groups)
-            notifyDataSetChanged()
-        }
-    }
+//    private fun retrieveListGroup(groups: List<Group>){
+//        adapter.apply {
+//            addGroup(groups)
+//            notifyDataSetChanged()
+//        }
+//    }
 
 }

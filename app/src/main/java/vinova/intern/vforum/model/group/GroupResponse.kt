@@ -11,7 +11,7 @@ data class GroupResponse(
     @SerializedName("options")
     val options: Any,
     @SerializedName("result")
-    val result: List<Group>,
+    val result: ArrayList<Group>,
     @SerializedName("success")
     val success: Boolean
 )
