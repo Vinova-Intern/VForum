@@ -83,4 +83,10 @@
     <string name="setting">Setting</string>
     <string name="member">Member</string>
     <string name="profile">Profile</string>
+    <string name="gender_">Gender:</string>
+    <string name="role_">Role:</string>
+    <string name="kane_mail">kane1234@gmail.com</string>
+    <string name="email_">Email:</string>
+    <string name="_500_nposts">500+\nPosts</string>
+    <string name="_200_nanswers">200+\nAnswers</string>
 </resources>

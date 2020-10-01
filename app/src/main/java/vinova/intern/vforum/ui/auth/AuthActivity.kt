@@ -37,6 +37,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
+        super.onPause()
         softInputAssist.onPause()
         super.onPause()
     }
