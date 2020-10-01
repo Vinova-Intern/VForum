@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.topic.TopicResponse
 import vinova.intern.vforum.network.ApiServiceCaller
@@ -31,8 +32,7 @@ class HomeViewModel : ViewModel() {
                 .subscribe({
                     groupsData.value = it
                     groupsData.value?.result?.forEach { item ->
-                        getTopics(authorization, item.id)
-                        item.topics = topicsData.value?.result ?: emptyList()
+                        getTopics(authorization, item)
                     }
                 }, {
                     Log.d("HomeViewModel", "Failure: ${it.message}")
@@ -41,13 +41,15 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    fun getTopics(authorization: String, groupId: String) {
+    fun getTopics(authorization: String, group: Group) {
         compositeDisposable.add(
-            apiManager.getTopics(authorization, groupId)
+            apiManager.getTopics(authorization, group.id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    topicsData.value = it
+                    Log.d("Tim",it.toString());
+                    val pos  = groupsData.value?.result?.indexOf(group)
+                    groupsData.value?.result?.get(pos?:return@subscribe)?.topics= it.result
                 }, {
                     Log.d("HomeViewModel", "Failure: ${it.message}")
                     reLogin()

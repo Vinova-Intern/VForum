@@ -39,4 +39,9 @@
             android:id="@+id/create_post_to_home_action"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        tools:layout="@layout/fragment_user"
+        android:id="@+id/userFragment"
+        android:name="vinova.intern.vforum.ui.main.user.UserFragment"
+        android:label="UserFragment" />
 </navigation>

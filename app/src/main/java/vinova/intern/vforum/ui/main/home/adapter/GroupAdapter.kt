@@ -42,13 +42,13 @@ class GroupAdapter(private val listGroup: ArrayList<Group>): RecyclerView.Adapte
                 val listString = arrayListOf<String>("ABc", "Cde")
                 // show list topic
                 show_topic_iv.setOnClickListener {
+                    if(item.topics.isNotEmpty()){
+                        for (topic in item.topics){
+                            val inflate = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
+                            inflate.topic_name_tv.text = topic.name
 
-
-                    for (topic in item.topics){
-                        val inflate = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
-                        inflate.topic_name_tv.text = topic.name
-
-                        list_topic_ll.addView(inflate)
+                            list_topic_ll.addView(inflate)
+                        }
                     }
 
                     it.visibility = View.GONE

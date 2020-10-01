@@ -1,4 +1,4 @@
-package vinova.intern.vforum.ui.nav.user
+package vinova.intern.vforum.ui.main.user
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

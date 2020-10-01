@@ -56,12 +56,9 @@ class HomeFragment : Fragment() {
 
         viewModel.getGroups(authorization!!)
 
-        Log.i("HomeFragment", "get group done!")
-
         viewModel.groupsData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
-                    Log.i("HomeFragment", "Success!")
                     retrieveListGroup(response.result)
 
                 } else{

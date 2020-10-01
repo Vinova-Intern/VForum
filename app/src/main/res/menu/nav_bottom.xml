@@ -20,4 +20,9 @@
         android:icon="@drawable/ic_baseline_notifications_24"
         android:enabled="true"
         android:title="@string/notification"/>
+    <item
+        android:id="@+id/userFragment"
+        android:icon="@drawable/ic_person"
+        android:enabled="true"
+        android:title="@string/profile"/>
 </menu>

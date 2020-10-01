@@ -82,4 +82,5 @@
     <string name="user">User</string>
     <string name="setting">Setting</string>
     <string name="member">Member</string>
+    <string name="profile">Profile</string>
 </resources>

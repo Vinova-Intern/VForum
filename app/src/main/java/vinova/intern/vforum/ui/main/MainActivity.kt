@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment,
                 R.id.memoryFragment,
                 R.id.eventFragment,
-                R.id.notificationFragment
+                R.id.notificationFragment,
+                R.id.userFragment
             )
         )
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
