@@ -16,7 +16,7 @@ import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
 import vinova.intern.vforum.utils.Status
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(){
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
     private lateinit var adapter: GroupAdapter
@@ -33,6 +33,12 @@ class HomeFragment : Fragment() {
         binding.createPostFab.setOnClickListener{
             if (findNavController().currentDestination?.id == R.id.homeFragment) {
                 findNavController().navigate(R.id.home_to_create_post_action)
+            }
+        }
+
+        binding.createPostFab.setOnClickListener{
+            if (findNavController().currentDestination?.id == R.id.userFragment) {
+                findNavController().navigate(R.id.create_post_to_user_action)
             }
         }
 

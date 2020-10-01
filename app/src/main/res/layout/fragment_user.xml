@@ -198,14 +198,14 @@
             android:id="@+id/img_btn_change_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
             android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="@+id/img_btn_change_pass"
             app:layout_constraintEnd_toStartOf="@+id/img_btn_change_pass"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toTopOf="@+id/img_btn_change_pass"
-            app:srcCompat="@drawable/feed_user"
+            app:srcCompat="@drawable/ic_change_avatar"
             tools:ignore="VectorDrawableCompat" />
 
         <ImageButton
@@ -234,6 +234,20 @@
             app:layout_constraintTop_toTopOf="@+id/img_btn_change_pass"
             app:srcCompat="@drawable/user_log_out"
             tools:ignore="VectorDrawableCompat" />
+
+        <TextView
+            android:id="@+id/txt_change_avatar"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/change_avatar"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/img_btn_change_avatar"
+            app:layout_constraintStart_toStartOf="@id/img_btn_change_avatar"
+            app:layout_constraintEnd_toEndOf="@id/img_btn_change_avatar"/>
 
         <TextView
             android:id="@+id/txt_change_pass"
