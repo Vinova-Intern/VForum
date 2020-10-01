@@ -23,7 +23,7 @@ class RetrofitClientInstance {
             override fun log(message: String) {
                 Log.d("API", message)
             }
-        }).setLevel(HttpLoggingInterceptor.Level.BASIC)
+        }).setLevel(HttpLoggingInterceptor.Level.BODY)
 
         private var client = OkHttpClient.Builder()
             .addInterceptor(logging)

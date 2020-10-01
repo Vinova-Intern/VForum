@@ -1,26 +1,16 @@
 package vinova.intern.vforum.ui.main.home.adapter
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.group_item.view.*
+import kotlinx.android.synthetic.main.group_item.view.created_by_user_tv
+import kotlinx.android.synthetic.main.topic_item.view.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.model.group.Group
-import vinova.intern.vforum.model.topic.Topic
-import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
-import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
 import vinova.intern.vforum.utils.BaseViewHolder
-import vinova.intern.vforum.utils.SaveSharedPreference
 
 class GroupAdapter(private val listGroup: ArrayList<Group>): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
@@ -43,21 +33,22 @@ class GroupAdapter(private val listGroup: ArrayList<Group>): RecyclerView.Adapte
     }
 
     inner class GroupViewHolder(view: View): BaseViewHolder<Group>(view){
-        @SuppressLint("InflateParams")
         override fun bind(item: Group, position: Int) {
             with(itemView){
                 group_name_tv.text = item.name
                 created_by_user_tv.text = item.createdBy
 
-                Log.d("GroupAdapter", "Topic list size: ${item.topics.size}")
+                Log.d("GroupAdapter", "Topic list size: ${item.topics}")
+                val listString = arrayListOf<String>("ABc", "Cde")
                 // show list topic
                 show_topic_iv.setOnClickListener {
 
-                    val inflate: LayoutInflater = itemView.context.applicationContext.getSystemService((Context.LAYOUT_INFLATER_SERVICE)) as LayoutInflater
-                    val ll = inflate.inflate(R.layout.topic_item, null)
+
                     for (topic in item.topics){
-                        Log.d("GroupAdapter", "Topic info: ${topic.description}")
-                        topic_scroll_view.addView(ll)
+                        val inflate = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
+                        inflate.topic_name_tv.text = topic.name
+
+                        list_topic_ll.addView(inflate)
                     }
 
                     it.visibility = View.GONE
