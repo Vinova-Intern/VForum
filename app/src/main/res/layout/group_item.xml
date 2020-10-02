@@ -73,14 +73,4 @@
         android:layout_below="@id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/no_topic_tv"
-        android:layout_marginTop="@dimen/small_margin"
-        android:gravity="center"
-        android:text="@string/this_group_has_no_topic"
-        android:layout_below="@id/line"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </RelativeLayout>
