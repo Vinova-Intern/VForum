@@ -29,15 +29,19 @@ class UserFragment : Fragment(), View.OnClickListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user, container, false)
 
-        val logOutBtn = view.findViewById<ImageButton>(R.id.img_btn_log_out)
-        val logOut = view.findViewById<TextView>(R.id.txt_log_out)
+        val changePassBtn = view.findViewById<ImageButton>(R.id.img_btn_change_pass)
+        val changePass = view.findViewById<TextView>(R.id.txt_change_pass)
         val changeAvatarBtn = view.findViewById<ImageButton>(R.id.img_btn_change_avatar)
         val changeAvatar = view.findViewById<TextView>(R.id.txt_change_avatar)
+        val logOutBtn = view.findViewById<ImageButton>(R.id.img_btn_log_out)
+        val logOut = view.findViewById<TextView>(R.id.txt_log_out)
 
-        logOutBtn.setOnClickListener(this)
-        logOut.setOnClickListener(this)
         changeAvatarBtn.setOnClickListener(this)
         changeAvatar.setOnClickListener(this)
+        changePassBtn.setOnClickListener(this)
+        changePass.setOnClickListener(this)
+        logOutBtn.setOnClickListener(this)
+        logOut.setOnClickListener(this)
 
         return view
     }
