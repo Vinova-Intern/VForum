@@ -35,17 +35,17 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_user"
             android:layout_width="0dp"
             android:layout_height="108dp"
             android:background="@drawable/profile_bg"
+            android:src="@drawable/user_circle"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintDimensionRatio="w,1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            app:srcCompat="@drawable/user_circle" />
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
         <TextView
             android:layout_marginTop="@dimen/small_margin"

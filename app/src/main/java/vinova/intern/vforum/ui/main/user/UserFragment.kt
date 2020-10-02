@@ -3,6 +3,7 @@ package vinova.intern.vforum.ui.main.user
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_user.*
 import vinova.intern.vforum.R
@@ -30,10 +32,10 @@ class UserFragment : Fragment(), View.OnClickListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user, container, false)
 
-        val changePassBtn = view.findViewById<ImageButton>(R.id.img_btn_change_pass)
-        val changePass = view.findViewById<TextView>(R.id.txt_change_pass)
         val changeAvatarBtn = view.findViewById<ImageButton>(R.id.img_btn_change_avatar)
         val changeAvatar = view.findViewById<TextView>(R.id.txt_change_avatar)
+        val changePassBtn = view.findViewById<ImageButton>(R.id.img_btn_change_pass)
+        val changePass = view.findViewById<TextView>(R.id.txt_change_pass)
         val logOutBtn = view.findViewById<ImageButton>(R.id.img_btn_log_out)
         val logOut = view.findViewById<TextView>(R.id.txt_log_out)
 
@@ -51,6 +53,14 @@ class UserFragment : Fragment(), View.OnClickListener {
         SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, false)
         val intent = Intent(activity, AuthActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun changePassword(){
+        val fm = activity?.supportFragmentManager
+        val filterFragment = ChangePasswordDialogFragment()
+        if (fm != null) {
+            filterFragment.show(fm, "fragment_edit_name")
+        }
     }
 
     private fun openGalleryForImage() {
@@ -73,10 +83,9 @@ class UserFragment : Fragment(), View.OnClickListener {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode){
             PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openGalleryForImage()
-                }
-                else {
+                } else {
                     Toast.makeText(context, "Permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -85,10 +94,12 @@ class UserFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id){
-            R.id.img_btn_log_out -> logOut()
-            R.id.txt_log_out -> logOut()
             R.id.img_btn_change_avatar -> openGalleryForImage()
             R.id.txt_change_avatar -> openGalleryForImage()
+            R.id.img_btn_change_pass -> changePassword()
+            R.id.txt_change_pass -> changePassword()
+            R.id.img_btn_log_out -> logOut()
+            R.id.txt_log_out -> logOut()
         }
     }
 }
