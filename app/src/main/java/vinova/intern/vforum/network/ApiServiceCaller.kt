@@ -65,5 +65,20 @@ class ApiServiceCaller {
         )
     }
 
-
+    fun changePassword(
+        authorization: String,
+        old_password: String,
+        new_password: String,
+        renew_password: String
+    ):Single<TopicResponse>{
+        Log.d("CHANGE PASSWORD", BEARER_AUTHORIZATION+authorization+"GROUP_ID" + old_password + "OLD_PASS" + new_password + "NEW_PASS" + renew_password + "RENEW_PASS")
+        return RetrofitClientInstance.buildRequest(
+            _apiRestFull.changePassword(
+                BEARER_AUTHORIZATION + authorization,
+                old_password,
+                new_password,
+                renew_password
+            )
+        )
+    }
 }

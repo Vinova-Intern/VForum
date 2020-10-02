@@ -35,4 +35,13 @@ interface ApiService {
         @Header("Authorization") authorization: String,
         @Path("group_id") group_id: String
     ): Call<TopicResponse>
+
+    ////////////////////////Change Call<TopicResponse>
+    @PATCH("info")
+    fun changePassword(
+        @Header("Authorization") authorization: String,
+        @Field("oldpassword") old_password: String,
+        @Field("newpassword") new_password: String,
+        @Field("renewpassword") renew_password: String
+    ): Call<TopicResponse>
 }
