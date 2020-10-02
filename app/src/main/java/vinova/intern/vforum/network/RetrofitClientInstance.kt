@@ -34,7 +34,7 @@ class RetrofitClientInstance {
                 retrofit = Retrofit
                     .Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl(BASE_URL)
+                    .baseUrl(EMULATOR_LOCAL_HOST)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

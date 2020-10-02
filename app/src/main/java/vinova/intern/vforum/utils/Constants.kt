@@ -26,3 +26,32 @@ fun reLogin(){
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
     startActivity(context, intent, null)
 }
+
+val arrSection = mutableListOf(
+    "news_desk:arts",
+    "automobiles",
+    "books",
+    "business",
+    "fashion",
+    "food",
+    "health",
+    "home",
+    "insider",
+    "magazine",
+    "movies",
+    "nyregion",
+    "obituaries",
+    "opinion",
+    "politics",
+    "realestate",
+    "science",
+    "sports",
+    "sundayreview",
+    "technology",
+    "theater",
+    "t-magazine",
+    "travel",
+    "upshot",
+    "us",
+    "world"
+)

@@ -14,4 +14,5 @@ data class Group(
     @SerializedName("name")
     val name: String,
     var topics: List<Topic>
+
 )
