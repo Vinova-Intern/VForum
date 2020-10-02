@@ -22,6 +22,7 @@ class HomeViewModel : ViewModel() {
 
     val groupsData = MutableLiveData<GroupResponse>()
     val status: MutableLiveData<Status> = MutableLiveData()
+    val count: MutableLiveData<Int> = MutableLiveData(0)
 
     private val topicsData: MutableLiveData<TopicResponse> = MutableLiveData()
 
@@ -50,7 +51,7 @@ class HomeViewModel : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.d("Tim",it.toString());
+                    count.postValue(count.value?.plus(1))
                     val pos  = groupsData.value?.result?.indexOf(group)
                     groupsData.value?.result?.get(pos?:return@subscribe)?.topics= it.result
                 }, {

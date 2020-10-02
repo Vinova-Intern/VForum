@@ -1,4 +1,5 @@
 package vinova.intern.vforum.ui.main.home.adapter
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import vinova.intern.vforum.R
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.utils.BaseViewHolder
 import kotlin.properties.Delegates
-class GroupAdapter(): RecyclerView.Adapter<BaseViewHolder<*>>() {
+class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
     private var listGroup: ArrayList<Group>? = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.group_item, parent, false)

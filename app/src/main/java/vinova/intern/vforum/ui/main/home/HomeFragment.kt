@@ -28,17 +28,11 @@ class HomeFragment : Fragment(){
 
         binding = FragmentHomeBinding.inflate(inflater)
 
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
         binding.createPostFab.setOnClickListener{
             if (findNavController().currentDestination?.id == R.id.homeFragment) {
                 findNavController().navigate(R.id.home_to_create_post_action)
-            }
-        }
-
-        binding.createPostFab.setOnClickListener{
-            if (findNavController().currentDestination?.id == R.id.userFragment) {
-                findNavController().navigate(R.id.create_post_to_user_action)
             }
         }
 
@@ -82,13 +76,11 @@ class HomeFragment : Fragment(){
                 binding.groupRecyclerView.visibility = View.VISIBLE
             }
         })
+
+        viewModel.count.observe(viewLifecycleOwner, Observer {
+            adapter.notifyDataSetChanged()
+        })
     }
 
-//    private fun retrieveListGroup(groups: List<Group>){
-//        adapter.apply {
-//            addGroup(groups)
-//            notifyDataSetChanged()
-//        }
-//    }
 
 }

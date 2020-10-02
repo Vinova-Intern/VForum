@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_user.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.ui.auth.AuthActivity
+import vinova.intern.vforum.utils.SaveSharedPreference
 
 class UserFragment : Fragment(), View.OnClickListener {
 
@@ -47,6 +48,7 @@ class UserFragment : Fragment(), View.OnClickListener {
     }
 
     private fun logOut(){
+        SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, false)
         val intent = Intent(activity, AuthActivity::class.java)
         startActivity(intent)
     }
