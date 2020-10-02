@@ -92,4 +92,8 @@
     <string name="this_group_has_no_topic">This group has no topic !</string>
     <string name="_10_topics">10 topics</string>
     <string name="change_avatar">Change avatar</string>
+    <string name="old_password">Old password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm">Confirm</string>
 </resources>
