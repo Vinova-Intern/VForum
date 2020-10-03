@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import vinova.intern.vforum.model.create_post.CreatePostResponse
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.topic.TopicResponse
@@ -18,7 +19,7 @@ class HomeViewModel : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
     private val apiManager: ApiServiceCaller by lazy { ApiServiceCaller() }
-
+    private val createPostData=MutableLiveData<CreatePostResponse>()
     val groupsData = MutableLiveData<GroupResponse>()
     val status: MutableLiveData<Status> = MutableLiveData()
     val count: MutableLiveData<Int> = MutableLiveData(0)
@@ -57,6 +58,34 @@ class HomeViewModel : ViewModel() {
                 }, {
                     Log.d("HomeViewModel", "Failure: ${it.message}")
                     reLogin()
+                })
+        )
+    }
+    fun createPost(
+        authorization: String,
+        group_id: String,
+        topic_id: String,
+        post_title: String,
+        post_desc: String
+    ){
+        Log.d("HomeViewModel", "Create post at Group: $group_id at $topic_id title $post_title desc $post_desc")
+        compositeDisposable.add(
+            apiManager.createPost(
+                authorization,
+                group_id,
+                topic_id,
+                post_title,
+                post_desc
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    status.value = Status.SUCCESS
+                    createPostData.value = it
+                    Log.d("HomeViewMode", "Post: $it")
+                },{
+                    status.value = Status.ERROR
+                    Log.d("HomeViewModel", "Failure: ${it.message}")
                 })
         )
     }
