@@ -4,6 +4,7 @@ import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.*
 import vinova.intern.vforum.model.change_password.ChangePasswordResponse
+import vinova.intern.vforum.model.create_post.CreatePostResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
@@ -44,4 +45,15 @@ interface ApiService {
         @Field("newpassword") new_password: String,
         @Field("renewpassword") renew_password: String
     ): Call<ChangePasswordResponse>
+
+
+    @FormUrlEncoded
+    @POST("group/{group_id}/topic/{topic_id}/post")
+    fun createPost(
+        @Header("Authorization") authorization: String,
+        @Path("group_id") group_id:String,
+        @Path("topic_id") topic_id:String,
+        @Field("title") title:String,
+        @Field("description") description:String
+    ):Call<CreatePostResponse>
 }

@@ -3,6 +3,7 @@ package vinova.intern.vforum.network
 import android.util.Log
 import io.reactivex.Single
 import vinova.intern.vforum.model.change_password.ChangePasswordResponse
+import vinova.intern.vforum.model.create_post.CreatePostResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.post.PostResponse
@@ -94,6 +95,25 @@ class ApiServiceCaller {
                 old_password,
                 new_password,
                 renew_password
+            )
+        )
+    }
+
+    fun createPost(
+        authorization: String,
+        group_id: String,
+        topic_id:String,
+        title:String,
+        description:String
+    ):Single<CreatePostResponse>{
+        Log.d("CREATE POST", BEARER_AUTHORIZATION+authorization+"GROUP_ID"+group_id+"TOPIC_ID"+topic_id+"POST_TITLE"+title+"POST_DESCRIPTION"+description)
+        return RetrofitClientInstance.buildRequest(
+            _apiRestFull.createPost(
+                BEARER_AUTHORIZATION + authorization,
+                group_id,
+                topic_id,
+                title,
+                description
             )
         )
     }
