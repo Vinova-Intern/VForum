@@ -1,7 +1,6 @@
 package vinova.intern.vforum.ui.main.home.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,7 +12,6 @@ import vinova.intern.vforum.model.topic.TopicResponse
 import vinova.intern.vforum.network.ApiServiceCaller
 import vinova.intern.vforum.utils.Status
 import vinova.intern.vforum.utils.reLogin
-import java.util.function.Function
 
 class HomeViewModel : ViewModel() {
 
@@ -45,7 +43,7 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    fun getTopics(authorization: String, group: Group) {
+    private fun getTopics(authorization: String, group: Group) {
         compositeDisposable.add(
             apiManager.getTopics(authorization, group.id)
                 .subscribeOn(Schedulers.io())

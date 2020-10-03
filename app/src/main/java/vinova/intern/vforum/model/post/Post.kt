@@ -1,12 +1,13 @@
 package vinova.intern.vforum.model.post
 
 import com.google.gson.annotations.SerializedName
+import vinova.intern.vforum.model.comment.Comment
 
 data class Post(
     @SerializedName("title")
     val title: String,
     @SerializedName("commentsPost")
-    val commentsPost: String,
+    val commentsPost: ArrayList<Comment>?,
     @SerializedName("createdAt")
     val createdAt: String,
     @SerializedName("createdBy")

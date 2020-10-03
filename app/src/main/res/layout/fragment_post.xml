@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".ui.main.home.PostFragment">
+    tools:context=".ui.main.post.PostFragment">
 
     <ImageButton
-        android:id="@+id/detail_back_button"
+        android:id="@+id/back_home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/back_button"
@@ -17,7 +18,16 @@
         android:layout_marginTop="10dp"
         android:contentDescription="@string/return_to_homepage"/>
 
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/posts_recycler_view"
         tools:listitem="@layout/post_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
