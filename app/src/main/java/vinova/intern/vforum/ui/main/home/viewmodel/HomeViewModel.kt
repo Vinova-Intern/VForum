@@ -1,5 +1,6 @@
 package vinova.intern.vforum.ui.main.home.viewmodel
 
+import android.os.Parcelable
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,6 +22,7 @@ class HomeViewModel : ViewModel() {
     val groupsData = MutableLiveData<GroupResponse>()
     val status: MutableLiveData<Status> = MutableLiveData()
     val count: MutableLiveData<Int> = MutableLiveData(0)
+    var listState: Parcelable? = null
 
     private val topicsData: MutableLiveData<TopicResponse> = MutableLiveData()
 

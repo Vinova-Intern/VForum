@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentHomeBinding
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
@@ -18,7 +19,7 @@ import vinova.intern.vforum.utils.Status
 
 class HomeFragment : Fragment(){
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel by navGraphViewModels<HomeViewModel>(R.id.nav_graph_main)
     private lateinit var adapter: GroupAdapter
 
     override fun onCreateView(
@@ -28,7 +29,7 @@ class HomeFragment : Fragment(){
 
         binding = FragmentHomeBinding.inflate(inflater)
 
-        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+//        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
         binding.createPostFab.setOnClickListener{
             if (findNavController().currentDestination?.id == R.id.homeFragment) {
@@ -41,6 +42,8 @@ class HomeFragment : Fragment(){
 
         return binding.root
     }
+
+
 
     private fun setupUI(){
         adapter = GroupAdapter()
@@ -82,5 +85,18 @@ class HomeFragment : Fragment(){
         })
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        if (viewModel.listState != null) {
+            binding.groupRecyclerView.layoutManager?.onRestoreInstanceState(viewModel.listState)
+            viewModel.listState = null
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.listState = binding.groupRecyclerView.layoutManager?.onSaveInstanceState()
+    }
 
 }
