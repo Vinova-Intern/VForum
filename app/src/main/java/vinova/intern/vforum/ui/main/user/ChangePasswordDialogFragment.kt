@@ -23,7 +23,16 @@ class ChangePasswordDialogFragment: DialogFragment(), View.OnClickListener {
         return root
     }
 
+    ////////////////////////////////Go back to UserFragment
+    private fun goBackUserFragment(){}
+
+    ////////////////////////////////////Go back to UserFragment + change password
+    private fun confirmChangePassword(){}
+
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when(v?.id){
+            R.id.change_password_back_button -> goBackUserFragment()
+            R.id.confirm_password -> confirmChangePassword()
+        }
     }
 }
