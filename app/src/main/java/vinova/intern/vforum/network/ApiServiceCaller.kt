@@ -5,6 +5,7 @@ import io.reactivex.Single
 import vinova.intern.vforum.model.change_password.ChangePasswordResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
+import vinova.intern.vforum.model.post.PostResponse
 import vinova.intern.vforum.model.sign_up.SignUpUser
 import vinova.intern.vforum.model.topic.TopicResponse
 import vinova.intern.vforum.utils.BEARER_AUTHORIZATION
@@ -62,6 +63,20 @@ class ApiServiceCaller {
             _apiRestFull.getTopics(
                 BEARER_AUTHORIZATION + authorization,
                 group_id
+            )
+        )
+    }
+
+    fun getPosts(
+        authorization: String,
+        group_id: String,
+        topic_id: String
+    ):Single<PostResponse>{
+        return RetrofitClientInstance.buildRequest(
+            _apiRestFull.getPosts(
+                BEARER_AUTHORIZATION + authorization,
+                group_id,
+                topic_id
             )
         )
     }

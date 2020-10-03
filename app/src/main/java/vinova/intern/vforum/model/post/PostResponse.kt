@@ -11,7 +11,7 @@ data class PostResponse(
     @SerializedName("options")
     val options: Any,
     @SerializedName("result")
-    val result: List<Post>,
+    val result: ArrayList<Post>,
     @SerializedName("success")
     val success: Boolean
 )

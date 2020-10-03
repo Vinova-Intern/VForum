@@ -1,8 +1,12 @@
 package vinova.intern.vforum.ui.main.home.adapter
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.group_item.view.*
 import kotlinx.android.synthetic.main.group_item.view.created_by_user_tv
@@ -44,9 +48,18 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                         list_topic_ll.visibility = View.VISIBLE
                         if(item.topics != null){
                             for (topic in item.topics!!){
-                                val inflate = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
-                                inflate.topic_name_tv.text = topic.name
-                                list_topic_ll.addView(inflate)
+                                val topicItem = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
+                                topicItem.topic_name_tv.text = topic.name
+
+                                topicItem.setOnClickListener {
+                                    if (findNavController().currentDestination?.id == R.id.homeFragment) {
+                                        val bundle = bundleOf("GROUP_ID" to item.id, "TOPIC_ID" to topic.id)
+
+                                        findNavController().navigate(R.id.topic_to_post_action, bundle)
+                                    }
+                                }
+
+                                list_topic_ll.addView(topicItem)
                             }
                         }
                     } else{
@@ -66,7 +79,7 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                     group.isExpanded = !group.isExpanded
 
                     // Show list topic
-                    if(group.topics?.isNotEmpty()!!){
+                    if(group.topics != null){
                         if(group.isExpanded){
                             list_topic_ll.visibility = View.VISIBLE
                         } else{
