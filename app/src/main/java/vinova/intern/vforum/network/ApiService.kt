@@ -3,6 +3,7 @@ package vinova.intern.vforum.network
 import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.*
+import vinova.intern.vforum.model.change_password.ChangePasswordResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
@@ -36,12 +37,11 @@ interface ApiService {
         @Path("group_id") group_id: String
     ): Call<TopicResponse>
 
-    ////////////////////////Change Call<TopicResponse>
     @PATCH("info")
     fun changePassword(
         @Header("Authorization") authorization: String,
         @Field("oldpassword") old_password: String,
         @Field("newpassword") new_password: String,
         @Field("renewpassword") renew_password: String
-    ): Call<TopicResponse>
+    ): Call<ChangePasswordResponse>
 }

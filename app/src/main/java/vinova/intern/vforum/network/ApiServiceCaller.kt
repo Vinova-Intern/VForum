@@ -2,6 +2,7 @@ package vinova.intern.vforum.network
 
 import android.util.Log
 import io.reactivex.Single
+import vinova.intern.vforum.model.change_password.ChangePasswordResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
@@ -70,7 +71,7 @@ class ApiServiceCaller {
         old_password: String,
         new_password: String,
         renew_password: String
-    ):Single<TopicResponse>{
+    ):Single<ChangePasswordResponse>{
         Log.d("CHANGE PASSWORD", BEARER_AUTHORIZATION+authorization+"GROUP_ID" + old_password + "OLD_PASS" + new_password + "NEW_PASS" + renew_password + "RENEW_PASS")
         return RetrofitClientInstance.buildRequest(
             _apiRestFull.changePassword(
