@@ -7,6 +7,7 @@ import vinova.intern.vforum.model.change_password.ChangePasswordResponse
 import vinova.intern.vforum.model.create_post.CreatePostResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
+import vinova.intern.vforum.model.post.PostResponse
 import vinova.intern.vforum.model.sign_up.SignUpUser
 import vinova.intern.vforum.model.topic.TopicResponse
 
@@ -37,6 +38,13 @@ interface ApiService {
         @Header("Authorization") authorization: String,
         @Path("group_id") group_id: String
     ): Call<TopicResponse>
+
+    @GET("group/{group_id}/topic/{topic_id}/post")
+    fun getPosts(
+        @Header("Authorization") authorization: String,
+        @Path("group_id") group_id: String,
+        @Path("topic_id") topic_id:String
+    ): Call<PostResponse>
 
     @PATCH("info")
     fun changePassword(

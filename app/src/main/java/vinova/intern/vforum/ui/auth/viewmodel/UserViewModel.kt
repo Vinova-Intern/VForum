@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import vinova.intern.vforum.model.change_password.ChangePasswordResponse
 import vinova.intern.vforum.model.login.LoginUser
 import vinova.intern.vforum.model.sign_up.SignUpUser
 import vinova.intern.vforum.network.ApiServiceCaller
@@ -19,6 +20,7 @@ class UserViewModel: ViewModel() {
 
     val signUpData: MutableLiveData<SignUpUser> = MutableLiveData()
     val loginData: MutableLiveData<LoginUser> = MutableLiveData()
+    val passwordData: MutableLiveData<ChangePasswordResponse> = MutableLiveData()
     val status: MutableLiveData<Status> = MutableLiveData()
 
     fun signUp(
@@ -67,6 +69,24 @@ class UserViewModel: ViewModel() {
                 },{
                     status.value = Status.ERROR
                     Log.d("UserViewModel", "Failure: ${it.message}")
+                })
+        )
+    }
+
+    fun changePassword(
+        authorization: String,
+        old_password: String,
+        new_password: String,
+        renew_password: String
+    ){
+        compositeDisposable.add(
+            apiManager.changePassword(authorization, old_password, new_password, renew_password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    passwordData.value = it
+                },{
+                    Log.d("UserViewModel", "Message: ${it.message}")
                 })
         )
     }

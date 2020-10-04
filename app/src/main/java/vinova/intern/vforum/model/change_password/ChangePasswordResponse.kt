@@ -15,5 +15,5 @@ data class ChangePasswordResponse(
     @SerializedName("result")
     val result: Result?,
     @SerializedName("success")
-    val success: Boolean?
+    val success: Boolean
 )

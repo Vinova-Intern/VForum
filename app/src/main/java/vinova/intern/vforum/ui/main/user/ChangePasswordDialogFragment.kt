@@ -11,6 +11,7 @@ import vinova.intern.vforum.R
 
 class ChangePasswordDialogFragment: DialogFragment(), View.OnClickListener {
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root: View = inflater.inflate(R.layout.change_password_fragment, container, false)
 

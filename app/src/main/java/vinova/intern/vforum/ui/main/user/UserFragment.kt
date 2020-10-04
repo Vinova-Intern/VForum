@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_user.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.ui.auth.AuthActivity
@@ -56,10 +57,14 @@ class UserFragment : Fragment(), View.OnClickListener {
     }
 
     private fun changePassword(){
-        val fm = activity?.supportFragmentManager
-        val filterFragment = ChangePasswordDialogFragment()
-        if (fm != null) {
-            filterFragment.show(fm, "fragment_edit_name")
+//        val fm = activity?.supportFragmentManager
+//        val filterFragment = ChangePasswordDialogFragment()
+//        if (fm != null) {
+//            filterFragment.show(fm, "fragment_edit_name")
+//        }
+
+        if (findNavController().currentDestination?.id == R.id.userFragment) {
+            findNavController().navigate(R.id.user_to_reset_pw_action)
         }
     }
 
