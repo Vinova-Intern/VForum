@@ -46,6 +46,7 @@ interface ApiService {
         @Path("topic_id") topic_id:String
     ): Call<PostResponse>
 
+    @FormUrlEncoded
     @PATCH("info")
     fun changePassword(
         @Header("Authorization") authorization: String,

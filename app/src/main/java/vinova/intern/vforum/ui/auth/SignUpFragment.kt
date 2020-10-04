@@ -17,7 +17,7 @@ import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentSignUpBinding
 import vinova.intern.vforum.utils.DISPLAY_NAME_EXISTED
 import vinova.intern.vforum.utils.Status
-import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
+import vinova.intern.vforum.viewmodel.UserViewModel
 
 
 class SignUpFragment : Fragment() {

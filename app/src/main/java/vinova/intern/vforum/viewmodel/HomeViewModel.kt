@@ -1,4 +1,4 @@
-package vinova.intern.vforum.ui.main.home.viewmodel
+package vinova.intern.vforum.viewmodel
 
 import android.os.Parcelable
 import android.util.Log

@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentLoginBinding
-import vinova.intern.vforum.ui.auth.viewmodel.UserViewModel
+import vinova.intern.vforum.viewmodel.UserViewModel
 import vinova.intern.vforum.ui.main.MainActivity
 import vinova.intern.vforum.utils.AUTHORIZATION_ARG
 import vinova.intern.vforum.utils.SaveSharedPreference

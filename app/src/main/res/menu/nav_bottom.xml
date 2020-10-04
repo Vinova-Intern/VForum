@@ -22,7 +22,7 @@
         android:title="@string/notification"/>
     <item
         android:id="@+id/userFragment"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/ic_user"
         android:enabled="true"
         android:title="@string/profile"/>
 </menu>

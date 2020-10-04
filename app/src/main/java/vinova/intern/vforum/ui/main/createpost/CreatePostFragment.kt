@@ -8,12 +8,11 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_create_post.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentCreatePostBinding
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
-import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
+import vinova.intern.vforum.viewmodel.HomeViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
 
 class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {

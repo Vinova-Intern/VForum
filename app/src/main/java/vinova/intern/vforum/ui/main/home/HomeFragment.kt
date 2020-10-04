@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentHomeBinding
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
-import vinova.intern.vforum.ui.main.home.viewmodel.HomeViewModel
+import vinova.intern.vforum.viewmodel.HomeViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
 import vinova.intern.vforum.utils.Status
 

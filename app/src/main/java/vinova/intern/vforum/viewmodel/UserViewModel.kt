@@ -1,4 +1,4 @@
-package vinova.intern.vforum.ui.auth.viewmodel
+package vinova.intern.vforum.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -79,11 +79,13 @@ class UserViewModel: ViewModel() {
         new_password: String,
         renew_password: String
     ){
+        status.value = Status.LOADING
         compositeDisposable.add(
             apiManager.changePassword(authorization, old_password, new_password, renew_password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    status.value = Status.SUCCESS
                     passwordData.value = it
                 },{
                     Log.d("UserViewModel", "Message: ${it.message}")
