@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentPostBinding
+import vinova.intern.vforum.ui.main.comment.CommentFragment
 import vinova.intern.vforum.ui.main.post.adapter.PostAdapter
 import vinova.intern.vforum.ui.main.post.viewmodel.PostViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
@@ -22,17 +23,22 @@ class PostFragment : Fragment() {
     private lateinit var adapter: PostAdapter
     private lateinit var viewModel: PostViewModel
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val groupId = arguments?.getString("GROUP_ID") ?: ""
+        val topicId = arguments?.getString("TOPIC_ID") ?: ""
 
         binding = FragmentPostBinding.inflate(inflater)
 
         viewModel = ViewModelProvider(requireActivity()).get(PostViewModel::class.java)
 
         setupUI()
-        setupObserver()
+
+        setupObserver(groupId,topicId)
 
         return binding.root
     }
@@ -41,33 +47,29 @@ class PostFragment : Fragment() {
         adapter = PostAdapter()
         binding.postsRecyclerView.adapter = adapter
 
-        binding.postTitleTv.setOnClickListener {
+
+        binding.backHomeButton.setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.postFragment) {
+
                 findNavController().navigate(R.id.post_to_home_action)
             }
         }
 
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                findNavController().popBackStack()
-            }
-
-        })
-
     }
 
-    private fun setupObserver(){
+    private fun setupObserver(groupId:String?,topicId:String?){
         val authorization = SaveSharedPreference().getAccessToken(requireContext())
-        val groupId = arguments?.getString("GROUP_ID") ?: ""
-        val topicId = arguments?.getString("TOPIC_ID") ?: ""
 
-        viewModel.getPosts(authorization!!, groupId, topicId)
+
+
+        viewModel.getPosts(authorization!!, groupId!!, topicId!!)
 
 
         viewModel.postData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
                     adapter.addListPost(response.result)
+                    adapter.setGroupTopicId(groupId,topicId)
                 } else{
                     Log.i("HomeFragment", "Failure!")
                 }

@@ -50,6 +50,7 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                             for (topic in item.topics!!){
                                 val topicItem = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
                                 topicItem.topic_name_tv.text = topic.name
+                                topicItem.created_by_user_tv.text=topic.createdBy
 
                                 topicItem.setOnClickListener {
                                     if (findNavController().currentDestination?.id == R.id.homeFragment) {

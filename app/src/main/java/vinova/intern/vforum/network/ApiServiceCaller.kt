@@ -3,6 +3,7 @@ package vinova.intern.vforum.network
 import android.util.Log
 import io.reactivex.Single
 import vinova.intern.vforum.model.change_password.ChangePasswordResponse
+import vinova.intern.vforum.model.comment.CommentResponse
 import vinova.intern.vforum.model.create_post.CreatePostResponse
 import vinova.intern.vforum.model.group.GroupResponse
 import vinova.intern.vforum.model.login.LoginUser
@@ -114,6 +115,23 @@ class ApiServiceCaller {
                 topic_id,
                 title,
                 description
+            )
+        )
+    }
+
+    fun getComments(
+        authorization: String,
+        group_id: String,
+        topic_id:String,
+        post_id:String
+    ):Single<CommentResponse>{
+        Log.d("GET_COMMENTS", BEARER_AUTHORIZATION+authorization+"GROUP_ID"+group_id+"TOPIC_ID"+topic_id+"POST_ID"+post_id)
+        return RetrofitClientInstance.buildRequest(
+            _apiRestFull.getComments(
+                BEARER_AUTHORIZATION + authorization,
+                group_id,
+                topic_id,
+                post_id
             )
         )
     }
