@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.comment_item.view.*
-import kotlinx.android.synthetic.main.group_item.view.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.model.comment.Comment
 import vinova.intern.vforum.utils.BaseViewHolder
@@ -46,9 +45,6 @@ class CommentAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                     1 -> "1"
                     else -> item.countLike.toString()
                 }
-            }
-            view.setOnClickListener{
-
             }
         }
 

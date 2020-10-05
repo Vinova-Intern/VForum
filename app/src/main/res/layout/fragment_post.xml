@@ -40,6 +40,7 @@
         </FrameLayout>
 
         <ProgressBar
+            android:indeterminateTint="@android:color/holo_red_light"
             android:id="@+id/progress_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

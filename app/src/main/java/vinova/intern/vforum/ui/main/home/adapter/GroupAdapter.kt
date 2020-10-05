@@ -1,12 +1,9 @@
 package vinova.intern.vforum.ui.main.home.adapter
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.group_item.view.*
 import kotlinx.android.synthetic.main.group_item.view.created_by_user_tv
@@ -15,6 +12,8 @@ import vinova.intern.vforum.R
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.utils.BaseViewHolder
 import kotlin.properties.Delegates
+
+
 class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
     private var listGroup: ArrayList<Group>? = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -49,6 +48,7 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                         if(item.topics != null){
                             for (topic in item.topics!!){
                                 val topicItem = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
+
                                 topicItem.topic_name_tv.text = topic.name
                                 topicItem.created_by_user_tv.text=topic.createdBy
 

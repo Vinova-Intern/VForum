@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -12,6 +11,7 @@
         tools:ignore="ExtraText">
 
         <ProgressBar
+            android:indeterminateTint="@android:color/holo_red_light"
             android:visibility="gone"
             android:id="@+id/progress_bar"
             app:layout_constraintTop_toTopOf="parent"

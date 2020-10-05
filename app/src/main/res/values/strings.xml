@@ -102,5 +102,7 @@
     <string name="confirm">Confirm</string>
     <string name="post">Post</string>
     <string name="create_post_lower">Create Post</string>
+    <string name="comment">Comment</string>
+    <string name="write_a_comment">Write a comment ...</string>
 
 </resources>

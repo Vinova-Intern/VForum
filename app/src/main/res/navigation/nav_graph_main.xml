@@ -45,9 +45,6 @@
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" >
         <action
-            android:id="@+id/post_to_home_action"
-            app:destination="@id/homeFragment" />
-        <action
             android:id="@+id/postFragment_to_commentFragment"
             app:destination="@id/commentFragment" />
     </fragment>
@@ -76,9 +73,5 @@
         android:id="@+id/commentFragment"
         android:name="vinova.intern.vforum.ui.main.comment.CommentFragment"
         android:label="CommentFragment"
-        tools:layout="@layout/fragment_comment" >
-        <action
-            android:id="@+id/commentFragment_to_postFragment"
-            app:destination="@id/postFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_comment" />
 </navigation>

@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.intern.vforum.databinding.FragmentPostBinding
 import vinova.intern.vforum.ui.main.post.adapter.PostAdapter
-import vinova.intern.vforum.ui.main.post.viewmodel.PostViewModel
+import vinova.intern.vforum.viewmodel.PostViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
 import vinova.intern.vforum.utils.Status
 

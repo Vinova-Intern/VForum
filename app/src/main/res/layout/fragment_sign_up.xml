@@ -1,304 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_auth_v2"
-    android:id="@+id/login_scroll_view"
-    android:fillViewport="true"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/login_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@drawable/background_auth_v2"
+        android:fillViewport="true">
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/logo_icon_iv"
-            android:layout_width="@dimen/logo_dimen"
-            android:layout_height="@dimen/logo_dimen"
-            android:layout_marginTop="@dimen/large_margin"
-            android:contentDescription="@string/logo_icon"
-            android:gravity="center"
-            android:src="@drawable/logo"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@android:color/black"/>
+            <ProgressBar
+                android:indeterminateTint="@android:color/holo_red_light"
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/sign_up_title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_up"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
-            app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
-            app:layout_constraintTop_toBottomOf="@+id/logo_icon_iv" />
+            <ImageView
+                android:id="@+id/logo_icon_iv"
+                android:layout_width="@dimen/logo_dimen"
+                android:layout_height="@dimen/logo_dimen"
+                android:layout_marginTop="@dimen/large_margin"
+                android:contentDescription="@string/logo_icon"
+                android:gravity="center"
+                android:src="@drawable/logo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/black" />
 
-        <TextView
-            android:id="@+id/sign_up_message_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/successfully"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
-            app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_title_tv" />
-
-        <ImageView
-            android:id="@+id/email_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:layout_marginTop="@dimen/large_margin"
-            android:contentDescription="@string/email"
-            android:src="@drawable/ic_email"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/email"
-            android:textColor="@color/light_orange"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_message_tv" />
-
-        <EditText
-            android:id="@+id/email_edt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:layout_marginEnd="@dimen/large_margin"
-            android:background="@android:color/transparent"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/email_iv"
-            app:layout_constraintTop_toTopOf="@id/email_iv" />
-
-        <TextView
-            android:id="@+id/line_1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="@id/email_edt"
-            app:layout_constraintStart_toStartOf="@id/email_edt"
-            app:layout_constraintTop_toBottomOf="@id/email_edt" />
-
-        <ImageView
-            android:id="@+id/password_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:layout_marginTop="@dimen/large_margin"
-            android:contentDescription="@string/password"
-            android:src="@drawable/password"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line_1" />
-
-        <EditText
-            android:id="@+id/password_edt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:autofillHints="@string/password"
-            android:background="@android:color/transparent"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            app:layout_constraintEnd_toEndOf="@id/email_edt"
-            app:layout_constraintStart_toStartOf="@id/password_iv"
-            app:layout_constraintTop_toTopOf="@id/password_iv" />
-
-        <TextView
-            android:id="@+id/line_2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintStart_toStartOf="@id/line_1"
-            app:layout_constraintEnd_toEndOf="@id/line_1"
-            app:layout_constraintTop_toBottomOf="@+id/password_edt" />
-
-        <ImageView
-            android:id="@+id/pw_visibility_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"
-            android:contentDescription="@string/show_password_icon"
-            android:gravity="center"
-            android:src="@drawable/icon_visibility"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/password_edt"
-            app:tint="@color/white"/>
-
-        <ImageView
-            android:id="@+id/display_name_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:layout_marginTop="@dimen/large_margin"
-            android:contentDescription="@string/email"
-            android:src="@drawable/ic_person"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line_2" />
-
-        <EditText
-            android:id="@+id/display_name_edt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:background="@android:color/transparent"
-            android:hint="@string/display_name"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            app:layout_constraintEnd_toEndOf="@id/line_1"
-            app:layout_constraintStart_toStartOf="@id/display_name_iv"
-            app:layout_constraintTop_toTopOf="@id/display_name_iv" />
-
-        <TextView
-            android:id="@+id/line_3"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="@id/line_1"
-            app:layout_constraintStart_toStartOf="@id/line_1"
-            app:layout_constraintTop_toBottomOf="@id/display_name_edt" />
-
-        <ImageView
-            android:id="@+id/gender_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_margin"
-            android:layout_marginTop="@dimen/large_margin"
-            android:contentDescription="@string/email"
-            android:src="@drawable/ic_gender"
-            android:text="@string/gender"
-            android:textColor="@color/light_orange"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line_3" />
-
-        <TextView
-            android:id="@+id/gender_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            app:layout_constraintEnd_toEndOf="@id/line_1"
-            app:layout_constraintStart_toStartOf="@id/line_1"
-            app:layout_constraintTop_toTopOf="@id/gender_iv" />
-
-        <RadioGroup
-            android:id="@+id/gender_radio_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gender_tv">
-
-            <RadioButton
-                android:id="@+id/male_radio_btn"
+            <TextView
+                android:id="@+id/sign_up_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@android:color/white"
-                android:textColor="@color/white"
-                android:checked="true"
-                android:text="@string/male"
-                android:textSize="17sp" />
+                android:layout_marginTop="20dp"
+                android:text="@string/sign_up"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
+                app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
+                app:layout_constraintTop_toBottomOf="@+id/logo_icon_iv" />
 
-            <RadioButton
-                android:id="@+id/female_radio_btn"
+            <TextView
+                android:id="@+id/sign_up_message_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:buttonTint="@android:color/white"
-                android:textColor="@color/white"
-                android:text="@string/female"
-                android:textSize="17sp" />
-        </RadioGroup>
+                android:layout_marginTop="20dp"
+                android:text="@string/successfully"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/logo_icon_iv"
+                app:layout_constraintStart_toStartOf="@+id/logo_icon_iv"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_title_tv" />
 
-        <ImageView
-            android:id="@+id/sign_up_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/large_margin"
-            android:background="@drawable/login_button_drawable"
-            android:contentDescription="@string/log_in"
-            android:gravity="center"
-            android:padding="10dp"
-            android:src="@drawable/ic_sign_up"
-            android:textAllCaps="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gender_radio_group"
-            tools:ignore="RtlSymmetry" />
+            <ImageView
+                android:id="@+id/email_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/large_margin"
+                android:contentDescription="@string/email"
+                android:src="@drawable/ic_email"
+                android:text="@string/email"
+                android:textColor="@color/light_orange"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_message_tv" />
 
-        <TextView
-            android:id="@+id/have_account_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/large_margin"
-            android:text="@string/have_an_account"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            app:layout_constraintEnd_toStartOf="@+id/login_click_tv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_up_tv" />
+            <EditText
+                android:id="@+id/email_edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginEnd="@dimen/large_margin"
+                android:background="@android:color/transparent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/email_iv"
+                app:layout_constraintTop_toTopOf="@id/email_iv" />
 
-        <TextView
-            android:id="@+id/login_click_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/log_in"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/standard_size_text"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/small_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/have_account_tv"
-            app:layout_constraintTop_toTopOf="@id/have_account_tv" />
+            <TextView
+                android:id="@+id/line_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="@id/email_edt"
+                app:layout_constraintStart_toStartOf="@id/email_edt"
+                app:layout_constraintTop_toBottomOf="@id/email_edt" />
 
-        <TextView
-            android:id="@+id/line_4"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/large_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_click_tv" />
+            <ImageView
+                android:id="@+id/password_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/large_margin"
+                android:contentDescription="@string/password"
+                android:src="@drawable/password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_1" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/password_edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:autofillHints="@string/password"
+                android:background="@android:color/transparent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edt"
+                app:layout_constraintStart_toStartOf="@id/password_iv"
+                app:layout_constraintTop_toTopOf="@id/password_iv" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/line_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="@id/line_1"
+                app:layout_constraintStart_toStartOf="@id/line_1"
+                app:layout_constraintTop_toBottomOf="@+id/password_edt" />
+
+            <ImageView
+                android:id="@+id/pw_visibility_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:contentDescription="@string/show_password_icon"
+                android:gravity="center"
+                android:src="@drawable/icon_visibility"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/password_edt"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/display_name_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/large_margin"
+                android:contentDescription="@string/email"
+                android:src="@drawable/ic_person"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_2" />
+
+            <EditText
+                android:id="@+id/display_name_edt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:background="@android:color/transparent"
+                android:hint="@string/display_name"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                app:layout_constraintEnd_toEndOf="@id/line_1"
+                app:layout_constraintStart_toStartOf="@id/display_name_iv"
+                app:layout_constraintTop_toTopOf="@id/display_name_iv" />
+
+            <TextView
+                android:id="@+id/line_3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="@id/line_1"
+                app:layout_constraintStart_toStartOf="@id/line_1"
+                app:layout_constraintTop_toBottomOf="@id/display_name_edt" />
+
+            <ImageView
+                android:id="@+id/gender_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_margin"
+                android:layout_marginTop="@dimen/large_margin"
+                android:contentDescription="@string/email"
+                android:src="@drawable/ic_gender"
+                android:text="@string/gender"
+                android:textColor="@color/light_orange"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_3" />
+
+            <TextView
+                android:id="@+id/gender_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                app:layout_constraintEnd_toEndOf="@id/line_1"
+                app:layout_constraintStart_toStartOf="@id/line_1"
+                app:layout_constraintTop_toTopOf="@id/gender_iv" />
+
+            <RadioGroup
+                android:id="@+id/gender_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gender_tv">
+
+                <RadioButton
+                    android:id="@+id/male_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@android:color/white"
+                    android:checked="true"
+                    android:text="@string/male"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/female_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:buttonTint="@android:color/white"
+                    android:text="@string/female"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/sign_up_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:background="@drawable/login_button_drawable"
+                android:contentDescription="@string/log_in"
+                android:gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_sign_up"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gender_radio_group"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/have_account_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:text="@string/have_an_account"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                app:layout_constraintEnd_toStartOf="@+id/login_click_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_up_tv" />
+
+            <TextView
+                android:id="@+id/login_click_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:text="@string/log_in"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/standard_size_text"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/have_account_tv"
+                app:layout_constraintTop_toTopOf="@id/have_account_tv" />
+
+            <TextView
+                android:id="@+id/line_4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/large_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_click_tv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
 

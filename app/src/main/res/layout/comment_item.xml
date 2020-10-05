@@ -7,21 +7,23 @@
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp"
-    android:layout_margin="4dp"
-    >
+    android:layout_margin="4dp">
 
     <RelativeLayout
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/cmt_user_ava"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
-            android:layout_marginTop="@dimen/small_margin"
-            android:src="@drawable/ic_user" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avt_cmt"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_avt_circle_image"
+            android:padding="2dp"
+            android:layout_margin="15dp"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
 
         <TextView
             android:id="@+id/cmt_user_name"
@@ -29,10 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
-            android:layout_toEndOf="@id/cmt_user_ava"
+            android:layout_toEndOf="@id/iv_avt_cmt"
             android:text="@string/kane"
             android:textColor="#000"
-            android:textSize="@dimen/large_text_size"
+            android:textSize="@dimen/standard_size_text"
             android:textStyle="bold" />
 
 
@@ -43,7 +45,7 @@
             android:layout_below="@id/cmt_user_name"
             android:layout_marginStart="8dp"
             android:layout_marginTop="@dimen/small_margin"
-            android:layout_toEndOf="@id/cmt_user_ava"
+            android:layout_toEndOf="@id/iv_avt_cmt"
             android:text="@string/android"
             android:textColor="@color/black"
             android:textSize="14sp" />
@@ -53,11 +55,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
             android:layout_marginEnd="@dimen/standard_margin">
 
             <ImageView
+                android:layout_gravity="bottom"
                 android:id="@+id/cmt_like_ic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,28 +70,10 @@
                 android:id="@+id/like_counter_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1000"
+                android:text="@string/_10"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"/>
 
         </LinearLayout>
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/cmt_desc"
-            android:layout_marginTop="@dimen/small_margin"
-            android:background="@android:color/darker_gray" />
-
-        <LinearLayout
-            android:id="@+id/list_topic_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/line"
-            android:layout_marginStart="@dimen/standard_margin"
-            android:layout_marginBottom="@dimen/small_margin"
-            android:orientation="vertical"
-            android:visibility="gone" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

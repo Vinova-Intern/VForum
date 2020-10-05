@@ -2,6 +2,7 @@ package vinova.intern.vforum.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -44,5 +45,16 @@ class MainActivity : AppCompatActivity() {
             )
         )
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
+
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id){
+                R.id.homeFragment -> bottomNavView.visibility = View.VISIBLE
+                R.id.memoryFragment -> bottomNavView.visibility = View.VISIBLE
+                R.id.createPostFragment -> bottomNavView.visibility = View.VISIBLE
+                R.id.notificationFragment -> bottomNavView.visibility = View.VISIBLE
+                R.id.userFragment -> bottomNavView.visibility = View.VISIBLE
+                else -> bottomNavView.visibility = View.GONE
+            }
+        }
     }
 }

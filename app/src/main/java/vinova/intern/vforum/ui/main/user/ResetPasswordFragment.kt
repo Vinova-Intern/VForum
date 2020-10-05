@@ -78,18 +78,4 @@ class ResetPasswordFragment : Fragment() {
             }
         })
     }
-
-    override fun onResume() {
-        super.onResume()
-
-        if(view == null){
-            return
-        }
-
-        requireView().isFocusableInTouchMode = true
-        requireView().requestFocus()
-        requireView().setOnKeyListener { _, keyCode, event ->
-            event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK
-        }
-    }
 }

@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
+    android:layout_margin="@dimen/small_margin"
     app:cardBackgroundColor="@android:color/white"
     android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp">
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -27,7 +27,7 @@
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:src="@drawable/ic_topic"
-            app:tint="#ff5555" />
+            app:tint="@android:color/holo_red_light" />
 
         <TextView
             android:id="@+id/topic_name_tv"
@@ -37,11 +37,12 @@
             android:layout_marginTop="@dimen/small_margin"
             android:layout_toEndOf="@id/topic_icon"
             android:text="@string/android"
-            android:textColor="#ff5555"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/standard_size_text"
             android:textStyle="bold" />
 
         <TextView
+            android:textColor="@android:color/black"
             android:id="@+id/created_by_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,11 +50,10 @@
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:text="@string/created_by"
-            android:textColor="#ff5555"
-            android:textSize="@dimen/small_text_size"
-            android:textStyle="bold" />
+            android:textSize="@dimen/small_text_size"/>
 
         <TextView
+            android:textColor="@android:color/black"
             android:id="@+id/created_by_user_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,17 +62,8 @@
             android:layout_marginTop="@dimen/small_margin"
             android:layout_toEndOf="@id/created_by_tv"
             android:text="@string/kane"
-            android:textColor="#ff5555"
             android:textSize="@dimen/small_text_size"
             android:textStyle="bold" />
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/created_by_tv"
-            android:layout_marginTop="@dimen/small_margin"
-            android:background="@android:color/darker_gray" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

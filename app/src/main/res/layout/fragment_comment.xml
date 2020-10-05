@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -8,37 +7,50 @@
         android:id="@+id/cmt_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_home_2"
+        android:background="@android:color/white"
         tools:context=".ui.main.home.HomeFragment"
         tools:ignore="ExtraText">
 
-
-        <TextView
-            android:id="@+id/cmt_title_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/normal_red"
-            android:padding="@dimen/small_padding"
-            android:text="Comments"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/large_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/cmt_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_button"
-            android:tint="@color/black"
-            android:background="@color/transparent"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintStart_toStartOf="parent"
+        <ProgressBar
+            android:indeterminateTint="@android:color/holo_red_light"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/return_to_homepage" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/header_layout"
+            android:background="@android:color/holo_red_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_gravity="start|center_vertical"
+                android:backgroundTint="@android:color/white"
+                android:background="@drawable/ic_back"
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/comment_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="@string/comment"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/large_text_size" />
+        </FrameLayout>
 
         <View
             android:id="@+id/view_1"
@@ -47,82 +59,64 @@
             android:background="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cmt_title_text" />
+            app:layout_constraintTop_toBottomOf="@id/header_layout" />
         ​
-
         <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/cmt_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="visible"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/standard_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/view_1"
+            app:layout_constraintBottom_toTopOf="@id/footer_layout"
             tools:listitem="@layout/comment_item" />
         ​
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cmt_shimmer_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_1"
-            tools:listitem="@layout/group_item_shimmer" />
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/footer_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/cmt_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:orientation="horizontal"
-            android:background="@color/normal_red">
+            android:background="@android:color/holo_red_light">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_margin="5dp"
                 android:id="@+id/iv_avt_cmt"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/border_avt"
+                android:background="@drawable/ic_avt_circle_image"
                 android:padding="2dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/ic_user"
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="2dp" />
 
             <EditText
+                android:textSize="@dimen/standard_size_text"
                 android:id="@+id/edt_comment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:layout_marginRight="10dp"
                 android:autofillHints="@null"
                 android:background="@drawable/bg_rounded"
-                android:backgroundTint="@color/colorGrayCmt"
-                android:hint="@string/add_comment"
+                android:backgroundTint="@android:color/white"
+                android:hint="@string/write_a_comment"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="@dimen/small_padding"/>
 
-            <TextView
-                android:id="@+id/btn_post_cmt"
+            <ImageView
+                android:id="@+id/post_comment_iv"
+                android:padding="@dimen/padding_12"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/ic_send"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="15dp"
-                android:background="@color/gray"
-                android:padding="10dp"
-                android:text="Post"
-                android:textColor="@color/black"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
-
-
-        ​
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
