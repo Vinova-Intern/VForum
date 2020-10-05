@@ -11,7 +11,7 @@ data class CommentResponse(
     @SerializedName("options")
     val options: Any,
     @SerializedName("result")
-    val result: List<Comment>,
+    val result: ArrayList<Comment>,
     @SerializedName("success")
     val success: Boolean
 )

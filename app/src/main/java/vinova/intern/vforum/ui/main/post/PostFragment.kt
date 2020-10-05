@@ -2,16 +2,14 @@ package vinova.intern.vforum.ui.main.post
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentPostBinding
 import vinova.intern.vforum.ui.main.post.adapter.PostAdapter
 import vinova.intern.vforum.ui.main.post.viewmodel.PostViewModel
@@ -28,12 +26,16 @@ class PostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val groupId = arguments?.getString("GROUP_ID") ?: ""
+        val topicId = arguments?.getString("TOPIC_ID") ?: ""
+
         binding = FragmentPostBinding.inflate(inflater)
 
         viewModel = ViewModelProvider(requireActivity()).get(PostViewModel::class.java)
 
         setupUI()
-        setupObserver()
+
+        setupObserver(groupId,topicId)
 
         return binding.root
     }
@@ -54,26 +56,18 @@ class PostFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        binding.postTitleTv.setOnClickListener {
-            if (findNavController().currentDestination?.id == R.id.postFragment) {
-                findNavController().navigate(R.id.post_to_home_action)
-            }
-        }
-
     }
 
-    private fun setupObserver(){
+    private fun setupObserver(groupId:String?,topicId:String?){
         val authorization = SaveSharedPreference().getAccessToken(requireContext())
-        val groupId = arguments?.getString("GROUP_ID") ?: ""
-        val topicId = arguments?.getString("TOPIC_ID") ?: ""
 
-        viewModel.getPosts(authorization!!, groupId, topicId)
-
+        viewModel.getPosts(authorization!!, groupId!!, topicId!!)
 
         viewModel.postData.observe(viewLifecycleOwner, Observer {
             it?.let {response ->
                 if(response.success){
                     adapter.addListPost(response.result)
+                    adapter.setGroupTopicId(groupId,topicId)
                 } else{
                     Log.i("HomeFragment", "Failure!")
                 }
@@ -89,6 +83,5 @@ class PostFragment : Fragment() {
                 binding.postsRecyclerView.visibility = View.VISIBLE
             }
         })
-
     }
 }

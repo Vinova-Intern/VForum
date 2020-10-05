@@ -38,7 +38,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/large_text_size" />
         </FrameLayout>
-        
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="match_parent"
