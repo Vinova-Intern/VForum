@@ -9,24 +9,35 @@
         android:orientation="vertical"
         tools:context=".ui.main.post.PostFragment">
 
-        <RelativeLayout
+        <FrameLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/header_layout"
+            android:background="@android:color/holo_red_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <Button
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_gravity="start|center_vertical"
+                android:backgroundTint="@android:color/white"
+                android:background="@drawable/ic_back"
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
             <TextView
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/post_title_tv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/holo_red_light"
                 android:padding="@dimen/small_padding"
-                android:text="@string/home"
+                android:text="@string/post"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/large_text_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </RelativeLayout>
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/large_text_size" />
+        </FrameLayout>
         
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -35,6 +46,7 @@
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="@dimen/small_margin"
             android:id="@+id/posts_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

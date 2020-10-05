@@ -11,9 +11,6 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/home_to_create_post_action"
-            app:destination="@id/createPostFragment" />
-        <action
             android:id="@+id/topic_to_post_action"
             app:destination="@id/postFragment" />
     </fragment>
@@ -24,11 +21,6 @@
         android:label="fragment_memory"
         tools:layout="@layout/fragment_memory" />
     <fragment
-        android:id="@+id/eventFragment"
-        android:name="vinova.intern.vforum.ui.main.event.EventFragment"
-        android:label="fragment_event"
-        tools:layout="@layout/fragment_event" />
-    <fragment
         android:id="@+id/notificationFragment"
         android:name="vinova.intern.vforum.ui.main.notification.NotificationFragment"
         android:label="fragment_notification"
@@ -37,11 +29,7 @@
         android:id="@+id/createPostFragment"
         android:name="CreatePostFragment"
         android:label="CreatePostFragment"
-        tools:layout="@layout/fragment_create_post">
-        <action
-            android:id="@+id/create_post_to_home_action"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_create_post"/>
     <fragment
         tools:layout="@layout/fragment_user"
         android:id="@+id/userFragment"

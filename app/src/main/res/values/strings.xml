@@ -99,5 +99,7 @@
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="confirm">Confirm</string>
+    <string name="post">Post</string>
+    <string name="create_post_lower">Create Post</string>
 
 </resources>

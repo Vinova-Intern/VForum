@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_red_light">
+    android:background="@android:color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,12 +24,33 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.9557292" />
 
+        <FrameLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/header_layout"
+            android:background="@android:color/holo_red_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/user_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="@string/user"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/large_text_size" />
+        </FrameLayout>
+
         <View
             android:id="@+id/view"
             android:layout_width="0dp"
             android:layout_height="139dp"
             android:layout_marginTop="116dp"
-            android:background="@android:color/holo_red_dark"
+            android:background="@android:color/holo_red_light"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -37,10 +58,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_user"
+            android:src="@drawable/ic_avt_circle_image"
             android:layout_width="0dp"
             android:layout_height="108dp"
-            android:background="@drawable/profile_bg"
-            android:src="@drawable/user_circle"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintDimensionRatio="w,1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -129,7 +149,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/email_"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -141,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/kane_mail"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txt_email"
             app:layout_constraintStart_toEndOf="@+id/txt_email"/>
@@ -153,7 +173,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/role_"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -165,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/member"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txt_role"
             app:layout_constraintStart_toEndOf="@+id/txt_role"/>
@@ -177,7 +197,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/gender_"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -189,7 +209,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/male"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txt_gender"
             app:layout_constraintStart_toEndOf="@+id/txt_gender" />
@@ -241,7 +261,7 @@
             android:layout_height="wrap_content"
             android:text="@string/change_avatar"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="12sp"
             android:textAlignment="center"
@@ -255,7 +275,7 @@
             android:layout_height="wrap_content"
             android:text="@string/change_password"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="12sp"
             android:textAlignment="center"
@@ -269,7 +289,7 @@
             android:layout_height="wrap_content"
             android:text="@string/log_out"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="12sp"
             app:layout_constraintTop_toBottomOf="@id/img_btn_log_out"

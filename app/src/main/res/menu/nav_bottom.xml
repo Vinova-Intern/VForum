@@ -11,10 +11,10 @@
         android:enabled="true"
         android:title="@string/memory"/>
     <item
-        android:id="@+id/eventFragment"
-        android:icon="@drawable/ic_baseline_event_24"
+        android:id="@+id/createPostFragment"
+        android:icon="@drawable/ic_post_add"
         android:enabled="true"
-        android:title="@string/event"/>
+        android:title="@string/post"/>
     <item
         android:id="@+id/notificationFragment"
         android:icon="@drawable/ic_baseline_notifications_24"

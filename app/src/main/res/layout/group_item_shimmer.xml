@@ -1,52 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Developed by Haerul Muttaqin
-  Last modified 3/17/19 5:24 AM
-  Subscribe : https://www.youtube.com/haerulmuttaqin
-  Copyright (c) 2019. All rights reserved
-  -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_height="60dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="1dp">
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer_view_container2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:background="@android:color/darker_gray"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageViewAvatar"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:background="#DDD"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:background="#9C9292"
-                    android:id="@+id/text_view_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewUserName"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:background="#DDD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="MindOrks" />
 
-                <TextView
-                    android:layout_marginTop="40dp"
-                    android:background="#9C9292"
-                    android:id="@+id/text_view_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
-            </LinearLayout>
-        </com.facebook.shimmer.ShimmerFrameLayout>
-    </androidx.cardview.widget.CardView
-     >
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewUserEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#DDD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewUserName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserName"
+        tools:text="MindOrks" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

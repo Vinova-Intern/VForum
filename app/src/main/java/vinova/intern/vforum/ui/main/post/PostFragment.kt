@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,22 +38,27 @@ class PostFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            findNavController().popBackStack()
+        }
+    }
+
     private fun setupUI(){
         adapter = PostAdapter()
         binding.postsRecyclerView.adapter = adapter
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         binding.postTitleTv.setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.postFragment) {
                 findNavController().navigate(R.id.post_to_home_action)
             }
         }
-
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                findNavController().popBackStack()
-            }
-
-        })
 
     }
 

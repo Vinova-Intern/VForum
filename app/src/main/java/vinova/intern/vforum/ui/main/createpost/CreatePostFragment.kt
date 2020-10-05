@@ -33,7 +33,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         binding = FragmentCreatePostBinding.inflate(inflater)
 
-        binding.createPostGroupNameSpinner.setOnItemSelectedListener(this)
+        binding.createPostGroupNameSpinner.onItemSelectedListener = this
 
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
         listGroup = viewModel.groupsData.value?.result
@@ -41,12 +41,6 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
         adapter = GroupAdapter()
         val authorization = SaveSharedPreference().getAccessToken(requireContext())
         setupUI()
-
-        binding.createPostBackButton.setOnClickListener {
-            if (findNavController().currentDestination?.id == R.id.homeFragment) {
-                findNavController().navigate(R.id.home_to_create_post_action)
-            }
-        }
 
         binding.createPostTv.setOnClickListener{
             viewModel.createPost(
@@ -63,6 +57,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun setupUI() {
         /* arrGroupsName = getGroupsNameAndId().first.toTypedArray()*/
+        Log.d("CreatePostFragment", "${getGroupsNameAndId().first}")
         val adapterSpinner = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,getGroupsNameAndId().first)
         adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.createPostGroupNameSpinner.adapter = adapterSpinner

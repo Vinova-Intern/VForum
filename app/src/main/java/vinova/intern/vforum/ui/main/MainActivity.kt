@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-
-
         setupViews()
 
     }
@@ -40,17 +38,11 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.homeFragment,
                 R.id.memoryFragment,
-                R.id.eventFragment,
+                R.id.createPostFragment,
                 R.id.notificationFragment,
                 R.id.userFragment
             )
         )
         setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
-    }
-
-    override fun onBackPressed() {
-        val intent = Intent(Intent.ACTION_MAIN)
-        intent.addCategory(Intent.CATEGORY_HOME).flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
     }
 }
