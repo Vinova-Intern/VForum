@@ -3,170 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:orientation="vertical"
         tools:ignore="ExtraText">
 
-        <TextView
-            android:id="@+id/create_post_name"
-            android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="@android:color/holo_red_light"
-            android:text="@string/create_post_lower"
-            android:padding="@dimen/small_padding"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/large_text_size"
+        <FrameLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        ​
-        <LinearLayout
-            android:id="@+id/ll_group"
+            android:id="@+id/header_layout"
+            android:background="@android:color/holo_red_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/curated_light"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/create_post_name">
-            ​
+            android:layout_height="?attr/actionBarSize">
+
+            <Button
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_gravity="end|center_vertical"
+                android:backgroundTint="@android:color/white"
+                android:background="@drawable/ic_post_add"
+                android:id="@+id/add_post_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
 
             <TextView
-                android:id="@+id/create_post_group_tv"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/create_post_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_padding"
+                android:text="@string/create_post_lower"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/large_text_size" />
+
+        </FrameLayout>
+        ​
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/group_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:text="@string/group_edt"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/group"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
-            ​
+                android:textSize="@dimen/standard_size_text" />
 
             <Spinner
-                android:id="@+id/create_post_group_name_spinner"
-                android:layout_width="0dp"
+                android:id="@+id/group_spinner"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="@dimen/small_margin"
                 android:backgroundTint="@color/black"
                 android:spinnerMode="dropdown"
                 android:textColor="@color/black" />
-        </LinearLayout>
-        ​
-
-        <LinearLayout
-            android:id="@+id/ll_topic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/curated_light"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_group">
             ​
 
             <TextView
+                android:layout_marginTop="@dimen/small_margin"
                 android:id="@+id/create_post_topic_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:text="@string/topic_edt"
+                android:text="@string/topic"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="@dimen/standard_size_text" />
             ​
-
             <Spinner
-                android:id="@+id/create_post_topic_name_spinner"
-                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:id="@+id/topic_spinner"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
                 android:backgroundTint="@color/black"
                 android:spinnerMode="dropdown"
                 android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/create_post_title_edt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@null"
+                android:hint="@string/post_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/standard_size_text"/>
+
+            <EditText
+                android:id="@+id/create_post_description_edt"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:background="@null"
+                android:hint="@string/post_description"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/standard_size_text" />
+
         </LinearLayout>
-        ​
-        ​
-
-        <TextView
-            android:id="@+id/create_post_title_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/post_title_edt"
-            android:textColor="@color/curated_light"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/ll_topic"
-            app:layout_constraintTop_toBottomOf="@+id/ll_topic" />
-        ​
-
-        <EditText
-            android:id="@+id/create_post_title_edt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:hint="@string/post_title"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/create_post_title_tv"
-            app:layout_constraintTop_toBottomOf="@+id/create_post_title_tv"
-            tools:ignore="Autofill,TextFields" />
-
-        <TextView
-            android:id="@+id/create_post_description_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/post_description_edt"
-            android:textColor="@color/curated_light"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/create_post_title_edt"
-            app:layout_constraintTop_toBottomOf="@+id/create_post_title_edt" />
-        ​
-        <EditText
-            android:id="@+id/create_post_description_edt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/white"
-            android:hint="@string/post_description"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/create_post_description_tv"
-            app:layout_constraintTop_toBottomOf="@+id/create_post_description_tv"
-            tools:ignore="Autofill,TextFields" />
-
-        <TextView
-            android:id="@+id/create_post_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_sign_in_0"
-            android:backgroundTint="@color/red_orange"
-            android:gravity="center"
-            android:text="@string/create"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_post_description_edt" />
-        ​
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

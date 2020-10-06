@@ -29,7 +29,6 @@ class CommentFragment : Fragment() {
     private lateinit var postId: String
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,7 +75,15 @@ class CommentFragment : Fragment() {
             it?.let {response ->
                 if(response.success){
                     Log.d("CommentFragment", "Comment size: ${response.result.size}")
+
                     adapter.addListComment(response.result)
+//                    if (response.result.size > 0){
+//                        adapter.addListComment(response.result)
+//                        binding.cmtRecyclerView.visibility = View.VISIBLE
+//                        binding.noCmtFrame.root.visibility = View.GONE
+//                    } else{
+//
+//                    }
                 } else{
                     Log.i("CommentFragment", "Failure!")
                 }

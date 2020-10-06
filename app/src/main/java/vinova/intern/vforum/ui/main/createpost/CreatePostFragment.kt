@@ -7,13 +7,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import vinova.intern.vforum.R
 import vinova.intern.vforum.databinding.FragmentCreatePostBinding
 import vinova.intern.vforum.model.group.Group
 import vinova.intern.vforum.ui.main.home.adapter.GroupAdapter
-import vinova.intern.vforum.viewmodel.HomeViewModel
 import vinova.intern.vforum.utils.SaveSharedPreference
+import vinova.intern.vforum.viewmodel.HomeViewModel
 
 class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
@@ -21,7 +19,6 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var viewModel: HomeViewModel
     private lateinit var adapter: GroupAdapter
     private var listGroup: ArrayList<Group>?= null
-    private lateinit var arrGroupsName: Array<String>
 
     private var selectedGroupId:String=""
     private var selectedTopicId:String=""
@@ -33,7 +30,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         binding = FragmentCreatePostBinding.inflate(inflater)
 
-        binding.createPostGroupNameSpinner.onItemSelectedListener = this
+        binding.groupSpinner.onItemSelectedListener = this
 
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
         listGroup = viewModel.groupsData.value?.result
@@ -42,7 +39,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val authorization = SaveSharedPreference().getAccessToken(requireContext())
         setupUI()
 
-        binding.createPostTv.setOnClickListener{
+        binding.addPostBtn.setOnClickListener{
             viewModel.createPost(
                 authorization!!,
                 selectedGroupId,
@@ -60,7 +57,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
         Log.d("CreatePostFragment", "${getGroupsNameAndId().first}")
         val adapterSpinner = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,getGroupsNameAndId().first)
         adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.createPostGroupNameSpinner.adapter = adapterSpinner
+        binding.groupSpinner.adapter = adapterSpinner
     }
 
     private fun getGroupsNameAndId(): Pair<ArrayList<String>,ArrayList<String>> {
@@ -100,7 +97,7 @@ class CreatePostFragment : Fragment(), AdapterView.OnItemSelectedListener {
         Log.d("CreatePostFragment", "List topic: $arrayTopicsName")
         val adapterSpinner = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, arrayTopicsName.first)
         adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.createPostTopicNameSpinner.adapter = adapterSpinner
+        binding.topicSpinner.adapter = adapterSpinner
 
         selectedTopicId = arrayTopicsName.second[position]
         selectedGroupId = getGroupsNameAndId().second[position]

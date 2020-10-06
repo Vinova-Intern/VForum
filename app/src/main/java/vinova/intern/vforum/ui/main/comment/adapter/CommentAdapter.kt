@@ -30,7 +30,7 @@ class CommentAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
         }
     }
 
-    inner class CommentViewHolder(private var view: View): BaseViewHolder<Comment>(view) {
+    inner class CommentViewHolder(view: View): BaseViewHolder<Comment>(view) {
         private lateinit var comment: Comment
         override fun bind(item: Comment, position: Int) {
             this.comment = item
