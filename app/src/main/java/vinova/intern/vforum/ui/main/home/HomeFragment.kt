@@ -31,7 +31,6 @@ class HomeFragment : Fragment(){
     ): View? {
 
         binding = FragmentHomeBinding.inflate(inflater)
-        binding.lifecycleOwner = requireActivity()
 
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
@@ -65,6 +64,15 @@ class HomeFragment : Fragment(){
         })
 
         viewModel.count.observe(viewLifecycleOwner, Observer {
+            Log.d("HomeFragment", "Count data: $it")
+            Log.d("HomeFragment", "Adapter size: ${adapter.itemCount}")
+//            if (it < adapter.itemCount){
+//                binding.progressBar.visibility = View.VISIBLE
+//                binding.groupRecyclerView.visibility = View.GONE
+//            } else{
+//                binding.progressBar.visibility = View.GONE
+//                binding.groupRecyclerView.visibility = View.VISIBLE
+//            }
             adapter.notifyDataSetChanged()
         })
 
@@ -80,18 +88,18 @@ class HomeFragment : Fragment(){
         })
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        if (viewModel.listState != null) {
-            binding.groupRecyclerView.layoutManager?.onRestoreInstanceState(viewModel.listState)
-            viewModel.listState = null
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.listState = binding.groupRecyclerView.layoutManager?.onSaveInstanceState()
-    }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//
+//        if (viewModel.listState != null) {
+//            binding.groupRecyclerView.layoutManager?.onRestoreInstanceState(viewModel.listState)
+//            viewModel.listState = null
+//        }
+//    }
+//
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        viewModel.listState = binding.groupRecyclerView.layoutManager?.onSaveInstanceState()
+//    }
 
 }
