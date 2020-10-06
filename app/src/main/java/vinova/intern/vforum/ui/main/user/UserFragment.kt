@@ -114,37 +114,4 @@ class UserFragment : Fragment(), View.OnClickListener {
             R.id.txt_log_out -> logOut()
         }
     }
-
-//    fun saveImage(uriStr: String?){
-//        val dataToSave: HashMap<String, String> = HashMap()
-//        if (uriStr != null) {
-//            dataToSave[USER_AVATAR] = uriStr
-//        }
-//        mDocRef.set(dataToSave).addOnSuccessListener {
-//            Log.d("FirebaseManager", "Upload Successful")
-//        }
-//        mDocRef.set(dataToSave).addOnFailureListener() {
-//            Log.d("FirebaseManager", "Document was not saved")
-//        }
-//    }
-//
-//    private fun createFileFromInputStream(inputStream: InputStream, fileName: String): File? {
-//        try {
-//            val f = File(fileName)
-//            f.setWritable(true, false)
-//            val outputStream: OutputStream = FileOutputStream(f)
-//            val buffer = ByteArray(1024)
-//            var length = 0
-//            while (inputStream.read(buffer).also { length = it } > 0) {
-//                outputStream.write(buffer, 0, length)
-//            }
-//            outputStream.close()
-//            inputStream.close()
-//            return f
-//        } catch (e: IOException) {
-//            println("error in creating a file")
-//            e.printStackTrace()
-//        }
-//        return null
-//    }
 }
