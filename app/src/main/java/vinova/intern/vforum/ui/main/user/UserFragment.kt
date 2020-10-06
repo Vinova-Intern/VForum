@@ -3,28 +3,30 @@ package vinova.intern.vforum.ui.main.user
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_user.*
 import vinova.intern.vforum.R
 import vinova.intern.vforum.ui.auth.AuthActivity
 import vinova.intern.vforum.utils.SaveSharedPreference
+import java.io.*
 
 class UserFragment : Fragment(), View.OnClickListener {
 
     companion object {
         private const val IMAGE_PICK_CODE = 1000
         private const val PERMISSION_CODE = 1001
+//        private val mDocRef: DocumentReference = FirebaseFirestore.getInstance().document("User/UserAvatar")
+//        private const val USER_AVATAR = "User_Avatar"
     }
 
     override fun onCreateView(
@@ -83,9 +85,14 @@ class UserFragment : Fragment(), View.OnClickListener {
                 img_user.setImageURI(imageUri)
             }
         }
+
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         when (requestCode){
             PERMISSION_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
