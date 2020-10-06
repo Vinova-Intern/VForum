@@ -76,14 +76,18 @@ class CommentFragment : Fragment() {
                 if(response.success){
                     Log.d("CommentFragment", "Comment size: ${response.result.size}")
 
-                    adapter.addListComment(response.result)
-//                    if (response.result.size > 0){
-//                        adapter.addListComment(response.result)
-//                        binding.cmtRecyclerView.visibility = View.VISIBLE
-//                        binding.noCmtFrame.root.visibility = View.GONE
-//                    } else{
-//
-//                    }
+                    if (response.result.size > 0){
+                        adapter.addListComment(response.result)
+                        binding.cmtRecyclerView.visibility = View.VISIBLE
+                        binding.cmtIc.visibility = View.GONE
+                        binding.text1.visibility = View.GONE
+                        binding.text2.visibility = View.GONE
+                    } else{
+                        binding.cmtRecyclerView.visibility = View.GONE
+                        binding.cmtIc.visibility = View.VISIBLE
+                        binding.text1.visibility = View.VISIBLE
+                        binding.text2.visibility = View.VISIBLE
+                    }
                 } else{
                     Log.i("CommentFragment", "Failure!")
                 }
