@@ -3,6 +3,8 @@ package vinova.intern.vforum.ui.auth
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +50,15 @@ class SignUpFragment : Fragment() {
         displayNameEdt.addTextChangedListener(registerTextWatcher)
         passwordEdt.addTextChangedListener(registerTextWatcher)
 
+        binding.pwVisibilityIv.setOnClickListener { setPasswordVisibility(binding.passwordEdt) }
+
         return binding.root
+    }
+
+    private fun setPasswordVisibility(password: EditText){
+        if (password.transformationMethod == HideReturnsTransformationMethod.getInstance()){
+            password.transformationMethod = PasswordTransformationMethod.getInstance()
+        } else password.transformationMethod = HideReturnsTransformationMethod.getInstance()
     }
 
     private fun signUp() {

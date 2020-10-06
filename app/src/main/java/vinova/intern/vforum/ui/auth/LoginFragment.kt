@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -42,6 +45,8 @@ class LoginFragment : Fragment() {
 
         binding.loginTv.setOnClickListener { logIn() }
 
+        binding.pwVisibilityIv.setOnClickListener { setPasswordVisibility(binding.passwordEdt) }
+
         binding.emailEdt.addTextChangedListener(loginTextWatcher)
         binding.passwordEdt.addTextChangedListener(loginTextWatcher)
 
@@ -53,6 +58,12 @@ class LoginFragment : Fragment() {
         val password = binding.passwordEdt.text.toString()
         viewModel.login(email, password)
         handleResponse()
+    }
+
+    private fun setPasswordVisibility(password: EditText){
+        if (password.transformationMethod == HideReturnsTransformationMethod.getInstance()){
+            password.transformationMethod = PasswordTransformationMethod.getInstance()
+        } else password.transformationMethod = HideReturnsTransformationMethod.getInstance()
     }
 
     private fun handleResponse() {
