@@ -42,6 +42,9 @@
             android:textStyle="bold" />
 
         <TextView
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/small_padding"
+            android:paddingBottom="@dimen/small_padding"
             android:textColor="@android:color/black"
             android:id="@+id/created_by_tv"
             android:layout_width="wrap_content"
@@ -53,6 +56,8 @@
             android:textSize="@dimen/small_text_size"/>
 
         <TextView
+            android:paddingBottom="@dimen/small_padding"
+            android:paddingTop="@dimen/small_padding"
             android:textColor="@android:color/black"
             android:id="@+id/created_by_user_tv"
             android:layout_width="wrap_content"

@@ -2,6 +2,7 @@ package vinova.intern.vforum.ui.main.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,15 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                         list_topic_ll.visibility = View.VISIBLE
                         if(item.topics != null){
                             for (topic in item.topics!!){
+
+                                val layoutParams =
+                                    LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams.MATCH_PARENT,
+                                        LinearLayout.LayoutParams.WRAP_CONTENT
+                                    )
+
+                                layoutParams.setMargins(10, 20, 30, 10)
+
                                 val topicItem = LayoutInflater.from(itemView.context).inflate(R.layout.topic_item, null)
 
                                 topicItem.topic_name_tv.text = topic.name
@@ -60,7 +70,7 @@ class GroupAdapter: RecyclerView.Adapter<BaseViewHolder<*>>() {
                                     }
                                 }
 
-                                list_topic_ll.addView(topicItem)
+                                list_topic_ll.addView(topicItem, layoutParams)
                             }
                         }
                     } else{

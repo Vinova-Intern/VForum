@@ -16,17 +16,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/post_by_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:text="@string/posted_by"
+            android:textSize="@dimen/standard_size_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         ​
         <TextView
             android:id="@+id/username_post_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/standard_margin"
             android:text="@string/username"
             android:textColor="@color/black"
             android:textSize="@dimen/standard_size_text"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/post_by_tv"
             app:layout_constraintTop_toTopOf="parent" />
         ​
         <TextView
@@ -35,36 +45,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
             android:text="@string/post_title"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="@dimen/standard_size_text"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/username_post_tv"
+            app:layout_constraintStart_toStartOf="@id/post_by_tv"
             app:layout_constraintTop_toBottomOf="@+id/username_post_tv" />
         ​
         <TextView
             android:id="@+id/post_description_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginStart="@dimen/standard_margin"
             android:layout_marginTop="@dimen/small_margin"
             android:layout_marginEnd="@dimen/small_margin"
             android:text="@string/post_description"
-            android:textColor="@android:color/black"
             android:textSize="@dimen/standard_size_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/post_title_tv" />
         ​
-
         <ImageView
+            android:layout_marginBottom="@dimen/small_margin"
             android:id="@+id/detail_comment_iv"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="@dimen/small_margin"
-            app:layout_constraintTop_toBottomOf="@id/post_description_tv"
             android:contentDescription="@string/comment_icon"
             android:src="@drawable/post_comment"
+            app:layout_constraintTop_toBottomOf="@id/post_description_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/post_description_tv"
             app:tint="@android:color/black"
             tools:layout_editor_absoluteY="91dp" />
